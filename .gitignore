@@ -28,3 +28,10 @@ local.properties
 *.jks
 *.keystore
 *.apk
+
+# Local Lab9 runtime and experiment artifacts
+models/
+tools/llama.cpp/b12023/
+work/
+tools/
+outputs/

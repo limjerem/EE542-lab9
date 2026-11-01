@@ -5,4 +5,4 @@ asyncmy
 python-dotenv
 httpx
 python-jose[cryptography]
-passlib[bcrypt]
+bcrypt>=4.3,<5

@@ -6,14 +6,14 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Optional
 
+import bcrypt
 import httpx
 from dotenv import load_dotenv
-from fastapi import Depends, FastAPI, HTTPException, WebSocket, WebSocketDisconnect
+from fastapi import Depends, FastAPI, Header, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from jose import JWTError, jwt
-from passlib.context import CryptContext
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 from sqlalchemy import Boolean, DateTime, ForeignKey, Integer, String, Text, func, select
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
@@ -38,7 +38,6 @@ if not JWT_SECRET or JWT_SECRET == "please_change_me_to_a_long_random_value":
 
 engine = create_async_engine(DATABASE_URL, pool_pre_ping=True)
 SessionLocal = async_sessionmaker(engine, expire_on_commit=False)
-passwords = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
 class Base(DeclarativeBase):
@@ -68,7 +67,22 @@ class Message(Base):
 
 class Credentials(BaseModel):
     username: str = Field(min_length=3, max_length=50)
-    password: str = Field(min_length=8, max_length=128)
+    password: str = Field(min_length=8, max_length=72)
+
+    @field_validator("username")
+    @classmethod
+    def normalize_username(cls, value: str) -> str:
+        value = value.strip()
+        if len(value) < 3:
+            raise ValueError("Username must contain at least 3 non-padding characters")
+        return value
+
+    @field_validator("password")
+    @classmethod
+    def validate_password_bytes(cls, value: str) -> str:
+        if len(value.encode("utf-8")) > 72:
+            raise ValueError("Password must fit within 72 UTF-8 bytes")
+        return value
 
 
 class NewMessage(BaseModel):
@@ -89,15 +103,15 @@ def make_token(user: User) -> str:
     )
 
 
-async def authenticated_user(
-    session: AsyncSession = Depends(get_session),
-    authorization: Optional[str] = None,
-) -> User:
-    # FastAPI injects the Authorization header below via Header.
-    raise NotImplementedError
+def hash_password(password: str) -> str:
+    return bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()).decode("ascii")
 
 
-from fastapi import Header
+def verify_password(password: str, password_hash: str) -> bool:
+    try:
+        return bcrypt.checkpw(password.encode("utf-8"), password_hash.encode("ascii"))
+    except (ValueError, UnicodeError):
+        return False
 
 
 async def current_user(
@@ -125,7 +139,6 @@ class ConnectionManager:
         self.connections: set[WebSocket] = set()
 
     async def connect(self, websocket: WebSocket):
-        await websocket.accept()
         self.connections.add(websocket)
 
     def disconnect(self, websocket: WebSocket):
@@ -133,7 +146,7 @@ class ConnectionManager:
 
     async def broadcast(self, data: dict):
         stale = []
-        for connection in self.connections:
+        for connection in tuple(self.connections):
             try:
                 await connection.send_text(json.dumps(data))
             except Exception:
@@ -184,6 +197,7 @@ async def ask_llm(question: str) -> str:
             {"role": "user", "content": question},
         ],
         "temperature": 0.7,
+        "max_tokens": 512,
     }
 
     try:
@@ -195,7 +209,10 @@ async def ask_llm(question: str) -> str:
             )
             response.raise_for_status()
             data = response.json()
-            return data["choices"][0]["message"]["content"].strip()
+            answer = data["choices"][0]["message"]["content"]
+            if not isinstance(answer, str) or not answer.strip():
+                raise ValueError("The LLM server returned an empty answer")
+            return answer.strip()
     except (httpx.HTTPError, KeyError, IndexError, TypeError, ValueError) as exc:
         return f"Sorry, I could not reach the LLM server. Check its address and status. ({exc})"
 
@@ -240,7 +257,8 @@ async def signup(data: Credentials, session: AsyncSession = Depends(get_session)
     if existing:
         raise HTTPException(status_code=409, detail="Username is already taken")
 
-    user = User(username=username, password_hash=passwords.hash(data.password))
+    password_hash = await asyncio.to_thread(hash_password, data.password)
+    user = User(username=username, password_hash=password_hash)
     session.add(user)
     await session.commit()
     await session.refresh(user)
@@ -250,7 +268,7 @@ async def signup(data: Credentials, session: AsyncSession = Depends(get_session)
 @app.post("/api/login")
 async def login(data: Credentials, session: AsyncSession = Depends(get_session)):
     user = await session.scalar(select(User).where(User.username == data.username.strip()))
-    if not user or not passwords.verify(data.password, user.password_hash):
+    if not user or not await asyncio.to_thread(verify_password, data.password, user.password_hash):
         raise HTTPException(status_code=401, detail="Incorrect username or password")
     return {"token": make_token(user), "username": user.username}
 
@@ -288,7 +306,7 @@ async def post_message(
     saved = await save_message(content, user.id, False, user.username)
     await manager.broadcast({"type": "message", "message": saved})
 
-    if "?" in content:
+    if any(mark in content for mark in ("?", "？")):
         answer = await ask_llm(content)
         bot_message = await save_message(answer, None, True, "Bot")
         await manager.broadcast({"type": "message", "message": bot_message})
@@ -298,10 +316,30 @@ async def post_message(
 
 @app.websocket("/ws")
 async def websocket_chat(websocket: WebSocket):
+    await websocket.accept()
+    try:
+        # Authenticate before joining broadcasts; keep JWTs out of request URLs/logs.
+        auth = await asyncio.wait_for(websocket.receive_json(), timeout=10)
+        if not isinstance(auth, dict) or auth.get("type") != "authenticate":
+            raise HTTPException(status_code=401, detail="Login required")
+        token = auth.get("token")
+        if not isinstance(token, str) or not token:
+            raise HTTPException(status_code=401, detail="Login required")
+        async with SessionLocal() as session:
+            await current_user(authorization=f"Bearer {token}", session=session)
+    except WebSocketDisconnect:
+        return
+    except (HTTPException, ValueError, TypeError, asyncio.TimeoutError):
+        await websocket.close(code=4401, reason="Login required")
+        return
+
     await manager.connect(websocket)
     try:
+        await websocket.send_json({"type": "ready"})
         while True:
-            # The frontend receives broadcasts; it does not send chat through this socket.
+            # Messages are posted through REST; this socket receives broadcasts.
             await websocket.receive_text()
     except WebSocketDisconnect:
+        pass
+    finally:
         manager.disconnect(websocket)

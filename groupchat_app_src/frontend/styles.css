@@ -14,3 +14,6 @@ button:hover{filter:brightness(1.1)}
 .composer{display:flex;gap:12px;margin-top:12px}
 .hint{opacity:.8;font-size:12px;margin-top:8px}
 .msg{margin-top:10px;color:#fca5a5}
+
+input{min-width:0}button:disabled{opacity:.55;cursor:wait}.message-body{white-space:pre-wrap;overflow-wrap:anywhere}.header h2{margin:0}.header .hint{margin-top:4px}.msg:empty{display:none}
+@media(max-width:520px){.container{padding:12px}.auth,.chat{padding:16px}.row{flex-wrap:wrap}.row input{flex-basis:100%}.messages{height:58vh}}
