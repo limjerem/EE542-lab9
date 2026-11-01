@@ -1,0 +1,3 @@
+-r embedding/requirements.txt
+pytest>=9,<10
+playwright>=1.64,<2

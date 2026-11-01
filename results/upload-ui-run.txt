@@ -1,0 +1,15 @@
+Single PDF passed.
+Multiple PDFs passed.
+{
+  "browser": "Chromium",
+  "url": "http://127.0.0.1:8501",
+  "checks": [
+    "single_pdf",
+    "repeat_process",
+    "multiple_pdf",
+    "text_and_html",
+    "reload_saved_index",
+    "clear_button"
+  ],
+  "questions_submitted": 0
+}

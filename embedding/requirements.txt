@@ -1,0 +1,12 @@
+streamlit>=1.38,<2
+python-dotenv>=1,<2
+pypdf>=6,<7
+beautifulsoup4>=4,<5
+langchain-core>=1,<2
+langchain-openai>=1,<2
+langchain-text-splitters>=1,<2
+faiss-cpu>=1.8,<2
+sqlalchemy>=2,<3
+pymysql>=1,<2
+cryptography
+numpy>=2,<3

@@ -1,0 +1,6 @@
+# Preserve verbatim command transcripts, including terminal whitespace.
+results/*.txt -whitespace
+# Preserve the existing template bytes and Windows line endings.
+groupchat_app_src/backend/* whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+embedding/htmlTemplates.py -whitespace
+embedding/readme.md -whitespace
