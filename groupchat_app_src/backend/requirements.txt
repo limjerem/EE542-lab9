@@ -6,3 +6,5 @@ python-dotenv
 httpx
 python-jose[cryptography]
 bcrypt>=4.3,<5
+-r ../../embedding/requirements.txt
+python-multipart

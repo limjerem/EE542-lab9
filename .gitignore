@@ -17,6 +17,7 @@ kb_index/
 faiss_index/
 index_data/
 upload_index/
+kb_store/
 local_artifacts/
 embedding/*.pdf
 embedding/*.zip

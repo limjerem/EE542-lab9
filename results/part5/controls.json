@@ -1,0 +1,212 @@
+[
+  {
+    "id": "C01",
+    "method": "hard_histogram",
+    "abstained": true,
+    "coverage": {
+      "tokens": 7,
+      "known_tokens": 4,
+      "content_tokens": 3,
+      "known_content_tokens": 0,
+      "unknown_tokens": [
+        "bake",
+        "cake",
+        "chocolate"
+      ]
+    }
+  },
+  {
+    "id": "C01",
+    "method": "stopword_histogram",
+    "abstained": true,
+    "coverage": {
+      "tokens": 7,
+      "known_tokens": 4,
+      "content_tokens": 3,
+      "known_content_tokens": 0,
+      "unknown_tokens": [
+        "bake",
+        "cake",
+        "chocolate"
+      ]
+    }
+  },
+  {
+    "id": "C01",
+    "method": "tfidf_hellinger",
+    "abstained": true,
+    "coverage": {
+      "tokens": 7,
+      "known_tokens": 4,
+      "content_tokens": 3,
+      "known_content_tokens": 0,
+      "unknown_tokens": [
+        "bake",
+        "cake",
+        "chocolate"
+      ]
+    }
+  },
+  {
+    "id": "C01",
+    "method": "hybrid_tfidf",
+    "abstained": true,
+    "coverage": {
+      "tokens": 7,
+      "known_tokens": 4,
+      "content_tokens": 3,
+      "known_content_tokens": 0,
+      "unknown_tokens": [
+        "bake",
+        "cake",
+        "chocolate"
+      ]
+    }
+  },
+  {
+    "id": "C01",
+    "method": "lexical_tfidf",
+    "abstained": true,
+    "coverage": {
+      "tokens": 7,
+      "known_tokens": 4,
+      "content_tokens": 3,
+      "known_content_tokens": 0,
+      "unknown_tokens": [
+        "bake",
+        "cake",
+        "chocolate"
+      ]
+    }
+  },
+  {
+    "id": "C02",
+    "method": "hard_histogram",
+    "abstained": true,
+    "coverage": {
+      "tokens": 1,
+      "known_tokens": 0,
+      "content_tokens": 1,
+      "known_content_tokens": 0,
+      "unknown_tokens": [
+        "qzxvplmn"
+      ]
+    }
+  },
+  {
+    "id": "C02",
+    "method": "stopword_histogram",
+    "abstained": true,
+    "coverage": {
+      "tokens": 1,
+      "known_tokens": 0,
+      "content_tokens": 1,
+      "known_content_tokens": 0,
+      "unknown_tokens": [
+        "qzxvplmn"
+      ]
+    }
+  },
+  {
+    "id": "C02",
+    "method": "tfidf_hellinger",
+    "abstained": true,
+    "coverage": {
+      "tokens": 1,
+      "known_tokens": 0,
+      "content_tokens": 1,
+      "known_content_tokens": 0,
+      "unknown_tokens": [
+        "qzxvplmn"
+      ]
+    }
+  },
+  {
+    "id": "C02",
+    "method": "hybrid_tfidf",
+    "abstained": true,
+    "coverage": {
+      "tokens": 1,
+      "known_tokens": 0,
+      "content_tokens": 1,
+      "known_content_tokens": 0,
+      "unknown_tokens": [
+        "qzxvplmn"
+      ]
+    }
+  },
+  {
+    "id": "C02",
+    "method": "lexical_tfidf",
+    "abstained": true,
+    "coverage": {
+      "tokens": 1,
+      "known_tokens": 0,
+      "content_tokens": 1,
+      "known_content_tokens": 0,
+      "unknown_tokens": [
+        "qzxvplmn"
+      ]
+    }
+  },
+  {
+    "id": "C03",
+    "method": "hard_histogram",
+    "abstained": true,
+    "coverage": {
+      "tokens": 3,
+      "known_tokens": 3,
+      "content_tokens": 0,
+      "known_content_tokens": 0,
+      "unknown_tokens": []
+    }
+  },
+  {
+    "id": "C03",
+    "method": "stopword_histogram",
+    "abstained": true,
+    "coverage": {
+      "tokens": 3,
+      "known_tokens": 3,
+      "content_tokens": 0,
+      "known_content_tokens": 0,
+      "unknown_tokens": []
+    }
+  },
+  {
+    "id": "C03",
+    "method": "tfidf_hellinger",
+    "abstained": true,
+    "coverage": {
+      "tokens": 3,
+      "known_tokens": 3,
+      "content_tokens": 0,
+      "known_content_tokens": 0,
+      "unknown_tokens": []
+    }
+  },
+  {
+    "id": "C03",
+    "method": "hybrid_tfidf",
+    "abstained": true,
+    "coverage": {
+      "tokens": 3,
+      "known_tokens": 3,
+      "content_tokens": 0,
+      "known_content_tokens": 0,
+      "unknown_tokens": []
+    }
+  },
+  {
+    "id": "C03",
+    "method": "lexical_tfidf",
+    "abstained": true,
+    "coverage": {
+      "tokens": 3,
+      "known_tokens": 3,
+      "content_tokens": 0,
+      "known_content_tokens": 0,
+      "unknown_tokens": []
+    }
+  }
+]

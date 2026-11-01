@@ -1,68 +1,62 @@
-# Lab9 Part 1
+# Lab 9 Part 1: contributor's Windows setup
 
-工作母目录：`C:\Project\EE542\Lab9`
+This page records the Windows contributor's setup at `C:\Project\EE542\Lab9`.
+The shared application now also includes the Part 4 document assistant. For the
+current WSL setup and integration evidence, see `docs/SETUP.md` and
+`docs/PART4_VALIDATION.md`.
 
-## 已配置的系统
+## Recorded environment
 
-- 网站：<http://localhost:8000/>，FastAPI + HTML/CSS/JavaScript。
-- MySQL：`127.0.0.1:3306/groupchat`，应用账号 `chatuser`。连接密码仅保存在应用 `.env` 中。
-- 本地模型：Meta Llama 3.1 8B Instruct，Q4_K_M，4096 上下文，RTX 4060 CUDA 加速。
-- 模型服务：`http://127.0.0.1:8001/v1`，模型别名 `llama-3.1-8b-instruct`。
-- Python：仅使用 `groupchat_app_src\backend\.venv`，Python 3.13.6。
+- Website: http://localhost:8000, FastAPI with HTML/CSS/JavaScript.
+- MySQL: `127.0.0.1:3306/groupchat`, application user `chatuser`.
+- Local model: Meta Llama 3.1 8B Instruct, Q4_K_M, 4096 context, RTX 4060 CUDA.
+- Model endpoint: `http://127.0.0.1:8001/v1`, alias `llama-3.1-8b-instruct`.
+- Python: `groupchat_app_src\backend\.venv`, Python 3.13.6.
 
-## 启动与停止
+These are the contributor's machine settings, not the WSL machine specification.
+Credentials remain in ignored configuration files. Create a local test account
+rather than relying on a password published in documentation.
 
-先确认 MySQL 服务正在运行。在 PowerShell 中执行：
+## Start and stop on Windows
+
+Confirm MySQL is running, then use PowerShell:
 
 ```powershell
 Set-Location 'C:\Project\EE542\Lab9'
 .\scripts\start_part1.ps1
-```
-
-模型和网站会在后台启动，重复运行会复用已就绪的服务。
-
-```powershell
 .\scripts\start_part1.ps1 -Stop
 ```
 
-停止操作仅针对脚本记录且启动时间匹配的模型、网站进程，不会停止 MySQL。
-日志位于 `work\logs`。
+The script reuses ready services and stops only processes it recorded with matching
+start times. MySQL is managed separately. Logs are written under `work\logs`.
+The combined Part 4 backend also requires the dependencies in
+`groupchat_app_src/backend/requirements.txt`; the imported requirements.lock.txt
+records the earlier Part 1 environment only.
 
-## 网页演示
+## Demonstration and checks
 
-1. 打开 <http://localhost:8000/>。
-2. 注册自己的账号（用户名至少 3 个字符，密码至少 8 个字符且不超过 72 个 UTF-8 字节）。
-3. 或使用本地演示账号 `lab9_demo`，密码 `Lab9Demo!2026`。
-4. 发送普通消息，验证聊天；发送含英文 `?` 或中文 `？` 的问题，验证机器人回答。
-5. 用两个浏览器会话登录不同账号，验证消息实时同步。
-6. 刷新网页，验证历史记录保留；点击 Log Out 退出。
+Register or log in, send ordinary messages, then send a question containing an ASCII
+or full-width question mark. Compare two browser sessions, reload saved history,
+and log out. Usernames need at least three characters after trimming. Passwords
+need at least eight characters and must fit within 72 UTF-8 bytes.
 
-当前 `.env` 位于 `groupchat_app_src\.env`。JWT 密钥已配置；数据库、JWT 和可选模型 API 密钥均不应提交到版本库。
+The contributor's `scripts/verify_part1.py` checks real MySQL, authentication,
+WebSocket broadcasts, local model replies, bcrypt hashes and persistence. It
+removes only its own test data and writes `work/part1-verification.json`. The
+original general-chat answers are historical; the combined Part 4 assistant is
+restricted to retrieved documents. The verification script now handles queued
+reply status events and selects cached ADS questions when the shared knowledge
+base is ready. Its merged WSL run passed 42 checks; a separate 17-check browser
+run is recorded by `scripts/verify_part4.py`.
 
-## Python 安装与复验
+Merged changes include direct bcrypt, asynchronous password hashing, credential
+validation, authenticated WebSockets, reconnect/history synchronization, message
+ID deduplication, Unicode question marks and send/error feedback.
 
-所有命令明确调用虚拟环境，不依赖终端是否已经激活环境。
+## Model provenance
 
-```powershell
-& '.\groupchat_app_src\backend\.venv\Scripts\python.exe' -m pip install -r '.\groupchat_app_src\backend\requirements.lock.txt'
-& '.\groupchat_app_src\backend\.venv\Scripts\python.exe' -B -u '.\scripts\verify_part1.py'
-```
-
-复验调用真实 MySQL 和本地模型，检查注册、登录、拒绝未授权访问、双用户 WebSocket 广播、英文及中文问题触发、真实模型回复、密码哈希和消息落库。脚本仅清理该次创建的测试数据。结果保存于 `work\part1-verification.json`。
-
-## 本次补齐的内容
-
-- 显式声明 `sqlalchemy[asyncio]`，包含异步数据库所需的 greenlet。
-- 直接使用 bcrypt，兼容已有 bcrypt 密码哈希，并校验密码字节长度。
-- WebSocket 登录认证；JWT 通过首条消息发送，不放在 URL 中。
-- 登出关闭连接；断线重连并补取历史；合并消息避免重复。
-- 支持中英文问号和 Enter 发送，提供等待回复与错误反馈。
-
-## 模型文件来源
-
-- llama.cpp 官方构建：b12023 / CUDA 12.4。
-- 模型：https://huggingface.co/bartowski/Meta-Llama-3.1-8B-Instruct-GGUF
-- 模型版本：bf5b95e96dac0462e2a09145ec66cae9a3f12067。
-- 模型及两个运行时压缩包均已核验 SHA-256；具体 URL、大小和校验值见 `tools\llama.cpp\provenance.json`。
-
-Part 1 实现通用群聊和 Llama 回答。文档知识库检索与自定义直方图 Embedding 属于后续实验部分。
+The contributor recorded llama.cpp b12023 / CUDA 12.4 and the
+[bartowski model repository](https://huggingface.co/bartowski/Meta-Llama-3.1-8B-Instruct-GGUF)
+at revision `bf5b95e96dac0462e2a09145ec66cae9a3f12067`. Model/runtime hashes are
+referenced in `tools/llama.cpp/provenance.json` on that machine. Those ignored
+artifacts were not included in the remote update and were not reverified on WSL.

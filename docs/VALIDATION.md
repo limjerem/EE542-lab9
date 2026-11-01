@@ -2,11 +2,13 @@
 
 ## Preserved baseline
 
-The working Part 1 FastAPI source and the standalone PDF index/chat programs are
-unchanged. Their file hashes were compared with the local baseline. The original
+This page records the Part 3 baseline checks. Part 4 now extends the web application;
+see PART4_VALIDATION.md for its current integration evidence. The standalone PDF
+index/chat programs remain unchanged. The original
 771-vector, 1536-dimensional native index remains intact. Part 1 registration,
-login, group chat and local Llama replies were previously verified on this machine.
-They were not rerun during this update.
+login, group chat and local Llama replies were previously verified on this machine
+and rechecked after the remote merge. See MERGE_REVIEW.md for the latest 42-check
+live service run, 20 regression tests and 17-check integrated browser run.
 
 ## Document library
 

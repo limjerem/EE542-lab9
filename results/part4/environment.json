@@ -1,0 +1,39 @@
+{
+  "timestamp_utc": "2026-11-01T04:46:45.849957+00:00",
+  "base_commit": "ed37871dd6d0b248dde52f180780ec833458e774",
+  "source_changes_uncommitted": true,
+  "database_counts": {
+    "users": 11,
+    "messages": 47,
+    "rag_documents": 5,
+    "rag_pages": 128,
+    "rag_chunks": 784,
+    "kb_documents": 5,
+    "kb_chunks": 784,
+    "message_evidence": 14
+  },
+  "shared_vectors": 784,
+  "dimension": 1536,
+  "original_native_vectors": 771,
+  "code_sha256": {
+    "groupchat_app_src/backend/app.py": "4b1d20633c10731b97f69d9892b36e35476d8ecd143837b0c7374a006a17ef0d",
+    "groupchat_app_src/backend/rag_service.py": "dfa4a9b8c475309b7f8f84daeffe5f2c4f2f05b3f9abacecffa95329e783d0fe",
+    "groupchat_app_src/backend/knowledge_adapter.py": "c058cd42c974813fcddb3250112deb3e48c4bdede57ea9c477e84cffe5b0ad0a",
+    "groupchat_app_src/backend/documents_api.py": "8667159c2b7c13517ef6ab384d5747e12f3b4ee4aa0db08f263e0b10904ced47",
+    "groupchat_app_src/frontend/app.js": "c34935308649482ce1d616bf6be7bf339bdb9851beb2ebd3fb0b47dae828c108",
+    "groupchat_app_src/frontend/index.html": "2ec1b99e82de2517ee38bbaf1d387aab97e5b6b4f17086660186eb59beddf47b",
+    "groupchat_app_src/frontend/styles.css": "5c42ace8495951ca4af5eb5442b01e8202e4533710de9e4d4a5e6dab4fafa2d6",
+    "lab9_core/kb.py": "fd0148502f9b84d827740b494aa641a6b4d44c50bce9d9967884f329cb11363f",
+    "lab9_core/vector_store.py": "dcc3e809b1d923dae9f8a9746a99985e28d650b80e6de052e9b59de1e6b87fdd",
+    "lab9_core/library.py": "cd17a463965fcea4a90e9895d4ddec38f4e0800f7d9819984dd0224211c74c98",
+    "embedding/upload_app.py": "3bd9d51df734346d316e953408fb38e01d5b83708a7472a67bb1d524c2d7b0d1"
+  },
+  "packages": {
+    "bcrypt": "4.3.0",
+    "fonttools": "4.68.0",
+    "fastapi": "0.162.0",
+    "SQLAlchemy": "2.1.6",
+    "pytest": "9.2.0",
+    "playwright": "1.64.1"
+  }
+}

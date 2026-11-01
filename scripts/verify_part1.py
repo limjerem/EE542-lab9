@@ -34,7 +34,9 @@ async def database():
                                 password=url.password,db=url.database,charset='utf8mb4',connect_timeout=10)
 
 async def next_message(socket):
-    payload=json.loads(await asyncio.wait_for(socket.recv(),timeout=120))
+    while True:
+        payload=json.loads(await asyncio.wait_for(socket.recv(),timeout=120))
+        if payload.get('type')!='bot_status':break
     check('websocket message event',payload.get('type')=='message')
     message=payload['message']
     if message['is_bot'] and message['id'] not in BOT_IDS:
@@ -53,7 +55,7 @@ async def main():
         check('invalid token rejected',(await client.get('/api/messages',headers={'Authorization':'Bearer invalid'})).status_code==401)
         for credentials in ({'username':'   ','password':password},
                             {'username':'valid_name','password':'short'},
-                            {'username':'valid_name','password':'中'*25}):
+                            {'username':'valid_name','password':'\u00e9'*40}):
             check('invalid credentials rejected',(await client.post('/api/signup',json=credentials)).status_code==422)
         tokens=[]
         for suffix in ('alice','bob'):
@@ -88,7 +90,11 @@ async def main():
             check('ordinary message accepted',response.status_code==200)
             received=await asyncio.gather(next_message(alice),next_message(bob))
             check('two users receive same broadcast',received[0]==received[1] and received[0]['content']==content and not received[0]['is_bot'])
-            for question in ('What is 2 + 2? Reply with only the number.', '请用一句中文解释什么是机器学习？'):
+            knowledge=await client.get('/api/knowledge',headers=headers)
+            document_mode=knowledge.status_code==200 and knowledge.json().get('ready',False)
+            questions=('What is tuning used for in ADS?', 'How do I bake a chocolate cake?') if document_mode else (
+                'What is 2 + 2? Reply with only the number.', 'Explain machine learning in one short sentence\uff1f')
+            for question in questions:
                 sending=asyncio.create_task(client.post('/api/messages',headers=headers,json={'content':question}))
                 user_messages=await asyncio.gather(next_message(alice),next_message(bob))
                 check('question broadcast to both users',user_messages[0]==user_messages[1] and user_messages[0]['content']==question)
@@ -96,9 +102,11 @@ async def main():
                 response=await sending
                 answer=bot_messages[0]
                 check('LLM request succeeds',response.status_code==200)
-                check('real Llama reply reaches both users',answer==bot_messages[1] and answer['is_bot'] and bool(answer['content'].strip()) and not answer['content'].startswith('Sorry, I could not reach'))
-                if question.startswith('What'):
+                check('real Llama reply reaches both users',answer==bot_messages[1] and answer['is_bot'] and bool(answer['content'].strip()) and answer.get('status')!='error' and not answer['content'].startswith('Sorry, I could not reach'))
+                if not document_mode and question.startswith('What'):
                     check('arithmetic answer correct','4' in answer['content'])
+                if document_mode and question.startswith('What'):
+                    check('document reply cites retrieved passages',bool(answer.get('sources')) and '[1]' in answer['content'])
                 ANSWERS.append({'question':question,'answer':answer['content']})
                 print('LLAMA_REPLY',answer['content'],flush=True)
             history=(await client.get('/api/messages',headers=headers)).json()['messages']
@@ -142,6 +150,7 @@ async def run():
         await cleanup()
         result.update(checks=CHECKS,answers=ANSWERS)
         output=ROOT/'work/part1-verification.json'
+        output.parent.mkdir(parents=True,exist_ok=True)
         output.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
         print('REPORT',output,flush=True)
 

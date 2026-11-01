@@ -1,0 +1,164 @@
+{
+  "timestamp_utc": "2026-11-01T05:04:02.799107+00:00",
+  "checks": [
+    "corpus_and_evaluation_hashes",
+    "artifact_checksums_and_reload",
+    "required_histogram_dimension_nonnegativity_and_normalization",
+    "nearest_centroid_labels_and_centroid_means_agree",
+    "held_out_metrics_recomputed_from_saved_model",
+    "unknown_and_stopword_controls_abstain",
+    "actual_word2vec_retraining_reproduces_all_vectors_exactly",
+    "real_local_llama_answers_from_custom_histogram_retrieval"
+  ],
+  "status": "passed",
+  "paid_api_requests": 0,
+  "live_rag_requested": true,
+  "answers": [
+    {
+      "question": "What is tuning used for in ADS?",
+      "answer": "Tuning is a way to change the component values and see the impact on circuit performance in ADS [5].",
+      "sources": [
+        {
+          "label": 1,
+          "chunk_id": 1,
+          "source_id": 0,
+          "filename": "Ads cookbook .pdf",
+          "page": 2,
+          "score": 0.6047340927760383
+        },
+        {
+          "label": 2,
+          "chunk_id": 730,
+          "source_id": 0,
+          "filename": "Ads cookbook .pdf",
+          "page": 116,
+          "score": 0.5033507377620043
+        },
+        {
+          "label": 3,
+          "chunk_id": 733,
+          "source_id": 0,
+          "filename": "Ads cookbook .pdf",
+          "page": 117,
+          "score": 0.4746939028903997
+        },
+        {
+          "label": 4,
+          "chunk_id": 729,
+          "source_id": 0,
+          "filename": "Ads cookbook .pdf",
+          "page": 116,
+          "score": 0.46880584624856764
+        },
+        {
+          "label": 5,
+          "chunk_id": 19,
+          "source_id": 0,
+          "filename": "Ads cookbook .pdf",
+          "page": 5,
+          "score": 0.46714873114441796
+        },
+        {
+          "label": 6,
+          "chunk_id": 377,
+          "source_id": 0,
+          "filename": "Ads cookbook .pdf",
+          "page": 66,
+          "score": 0.4567793857490419
+        }
+      ],
+      "coverage": {
+        "tokens": 7,
+        "known_tokens": 7,
+        "content_tokens": 2,
+        "known_content_tokens": 2,
+        "unknown_tokens": []
+      },
+      "model_called": true,
+      "answer_provider": "local Llama",
+      "method": "tfidf_hellinger"
+    },
+    {
+      "question": "What output phase difference does a branch line coupler produce?",
+      "answer": "A branch line coupler produces a 90-degree phase difference between the two output ports [1, 2].",
+      "sources": [
+        {
+          "label": 1,
+          "chunk_id": 237,
+          "source_id": 0,
+          "filename": "Ads cookbook .pdf",
+          "page": 42,
+          "score": 0.6400778124229142
+        },
+        {
+          "label": 2,
+          "chunk_id": 236,
+          "source_id": 0,
+          "filename": "Ads cookbook .pdf",
+          "page": 42,
+          "score": 0.6351695839331899
+        },
+        {
+          "label": 3,
+          "chunk_id": 624,
+          "source_id": 0,
+          "filename": "Ads cookbook .pdf",
+          "page": 101,
+          "score": 0.5314671670378117
+        },
+        {
+          "label": 4,
+          "chunk_id": 623,
+          "source_id": 0,
+          "filename": "Ads cookbook .pdf",
+          "page": 101,
+          "score": 0.5301081197068674
+        },
+        {
+          "label": 5,
+          "chunk_id": 238,
+          "source_id": 0,
+          "filename": "Ads cookbook .pdf",
+          "page": 42,
+          "score": 0.49007866001032774
+        },
+        {
+          "label": 6,
+          "chunk_id": 616,
+          "source_id": 0,
+          "filename": "Ads cookbook .pdf",
+          "page": 100,
+          "score": 0.4558161519928256
+        }
+      ],
+      "coverage": {
+        "tokens": 10,
+        "known_tokens": 10,
+        "content_tokens": 7,
+        "known_content_tokens": 7,
+        "unknown_tokens": []
+      },
+      "model_called": true,
+      "answer_provider": "local Llama",
+      "method": "tfidf_hellinger"
+    },
+    {
+      "question": "How do I bake a chocolate cake?",
+      "answer": "The available documents do not provide enough information to answer that question.",
+      "sources": [],
+      "coverage": {
+        "tokens": 7,
+        "known_tokens": 4,
+        "content_tokens": 3,
+        "known_content_tokens": 0,
+        "unknown_tokens": [
+          "bake",
+          "cake",
+          "chocolate"
+        ]
+      },
+      "model_called": false,
+      "method": "tfidf_hellinger"
+    }
+  ]
+}

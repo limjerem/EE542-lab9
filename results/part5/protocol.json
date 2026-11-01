@@ -1,0 +1,57 @@
+{
+  "corpus_sha256": "a154a211abf57d6a8ba92292105d24d2736df9eae9934e17e24cbb032c505f11",
+  "evaluation_sha256": "8a71d7da2a2dd1dd5501d96e1461a1c60a4cc5ff632d9e00f109b1a196b8a0bc",
+  "development_ids": [
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D05",
+    "D06",
+    "D07",
+    "D08",
+    "D09",
+    "D10",
+    "D11",
+    "D12"
+  ],
+  "test_ids": [
+    "T01",
+    "T02",
+    "T03",
+    "T04",
+    "T05",
+    "T06",
+    "T07",
+    "T08",
+    "T09",
+    "T10",
+    "T11",
+    "T12",
+    "T13",
+    "T14",
+    "T15",
+    "T16",
+    "T17",
+    "T18"
+  ],
+  "k_candidates": [
+    32,
+    64,
+    128
+  ],
+  "hybrid_alphas": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "primary_seed": 542,
+  "additional_seeds": [
+    42,
+    2026
+  ],
+  "dimension": 100,
+  "epochs": 30,
+  "selection": "Maximize development MRR@10, then Hit@5, then Hit@1; ties choose smaller K/alpha.",
+  "training": "Only corpus tokens; no question text or relevance labels enter Word2Vec, clustering or IDF."
+}

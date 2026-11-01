@@ -1,0 +1,12 @@
+Question (exit to quit): [1] Ads cookbook .pdf | PDF page 5 | score 0.8011
+Optimization.
+What is Tuning?
+Tuning is a way to change the component values and see the im-
+pact on circuit performance. This is a manual way of achieving the
+required performance from a circuit, which works well in certain
+cases.
+What is Optimization?
+Optimization is an automated procedure of achieving the circuit
+performance in which ADS can modify the circuit component
+values in order to meet the specific optimization goal s. Please
+Question (exit to quit):

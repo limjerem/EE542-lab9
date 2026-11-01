@@ -1,3 +1,5 @@
--r embedding/requirements.txt
+-r groupchat_app_src/backend/requirements.txt
+-r part5/requirements.txt
 pytest>=9,<10
 playwright>=1.64,<2
+aiosqlite>=0.22,<1
