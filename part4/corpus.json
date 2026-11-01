@@ -1,0 +1,61 @@
+{
+  "collection": "ADS Study Companion",
+  "audience": "EE and RF engineering students learning ADS",
+  "scope": "ADS 2011-family workflows; no assumptions about current ADS interfaces",
+  "collected_at": "2026-11-01T04:23:38.419989+00:00",
+  "policy": "Primary publisher documents only. No test excerpts or duplicate uploads. Front matter excluded from retrieval. Source PDFs kept outside Git.",
+  "sources": [
+    {
+      "id": "cookbook",
+      "filename": "ADS_Circuit_Design_Cookbook_2.pdf",
+      "title": "Circuit Design Cookbook 2.0",
+      "publisher": "Keysight EEsof EDA",
+      "edition": "ADS 2011 examples",
+      "url": "https://www.keysight.com/us/en/assets/7018-04800/application-notes/5992-0707.pdf",
+      "topic": "Practical RF design workflows",
+      "skip_pages": 2,
+      "sha256": "2ce9256d5b5623236ebb37e9f736e060e18e2a20c3435335497e1aef40a87556",
+      "pages": 124,
+      "bytes": 8429051
+    },
+    {
+      "id": "sparameters",
+      "filename": "ADS_2011_01_S_Parameter_Simulation.pdf",
+      "title": "S-Parameter Simulation",
+      "publisher": "Agilent / Keysight",
+      "edition": "ADS 2011.01",
+      "url": "https://edadownload.software.keysight.com/eedl/ads/2011_01/pdf/cktsimsp.pdf",
+      "topic": "Small-signal simulation and noise",
+      "skip_pages": 6,
+      "sha256": "da42bf6aec1318561d4973c2b3aa690e605196506171592837c998b865b9c82a",
+      "pages": 30,
+      "bytes": 236299
+    },
+    {
+      "id": "optimization",
+      "filename": "ADS_2011_01_Tuning_Optimization_Statistical_Design.pdf",
+      "title": "Tuning, Optimization, and Statistical Design",
+      "publisher": "Agilent / Keysight",
+      "edition": "ADS 2011.01",
+      "url": "https://edadownload.software.keysight.com/eedl/ads/2011_01/pdf/optstat.pdf",
+      "topic": "Tuning, optimization and yield",
+      "skip_pages": 6,
+      "sha256": "d648f2a6143e05021dc997639924f2151c265d871daffd9b40b7c4ea10f2f2b1",
+      "pages": 145,
+      "bytes": 2703920
+    },
+    {
+      "id": "em",
+      "filename": "ADS_2011_EM_Simulation.pdf",
+      "title": "EM Simulation",
+      "publisher": "Agilent / Keysight",
+      "edition": "ADS 2011 (September)",
+      "url": "https://edadownload.software.keysight.com/eedl/ads/2011/pdf/em.pdf",
+      "topic": "EM setup, ports and substrates",
+      "skip_pages": 6,
+      "sha256": "6444c83d0b8b1871569d08fcbf2b5f0fa7f6a37daeeeb85876f9b61936f4234c",
+      "pages": 163,
+      "bytes": 5101881
+    }
+  ]
+}

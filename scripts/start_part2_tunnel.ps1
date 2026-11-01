@@ -1,4 +1,4 @@
-param([switch]$Stop)
+param([switch]$Stop,[switch]$SkipWebsiteStart,[switch]$SkipConfigure)
 $ErrorActionPreference='Stop'
 $labRoot=Split-Path -Parent $PSScriptRoot
 $labWork=Join-Path $labRoot 'work'
@@ -19,8 +19,18 @@ if($Stop){
     if(Test-Path -LiteralPath $labStateFile){Remove-Item -LiteralPath $labStateFile}
     return
 }
-& (Join-Path $PSScriptRoot 'start_part1.ps1')
-if($labCurrent){Write-Output ('Reusing Lab9 HTTPS tunnel: '+$labState.origin);return}
+if(-not $SkipWebsiteStart){& (Join-Path $PSScriptRoot 'start_part1.ps1')}
+if($labCurrent){
+    $labCurrentLog=Join-Path $labLogs 'localhost-run.stdout.log'
+    if(Test-Path -LiteralPath $labCurrentLog){
+        $labOrigins=[regex]::Matches([string](Get-Content -LiteralPath $labCurrentLog -Raw),'https://[a-z0-9]+\.lhr\.life')
+        if($labOrigins.Count){
+            $labState.origin=$labOrigins[$labOrigins.Count-1].Value
+            $labState | ConvertTo-Json | Set-Content -LiteralPath $labStateFile -Encoding utf8
+        }
+    }
+    Write-Output ('Reusing Lab9 HTTPS tunnel: '+$labState.origin);return
+}
 New-Item -ItemType Directory -Path $labLogs -Force | Out-Null
 $labKnownHosts=Join-Path $labWork 'localhost-run-known-hosts'
 # Service public host key recorded on the first connection; subsequent connections compare it strictly.
@@ -34,14 +44,16 @@ $labLaunched=Start-Process -FilePath $labSsh -ArgumentList $labArguments -Workin
 $labOrigin=''
 for($labAttempt=0;$labAttempt -lt 40;$labAttempt++){
     Start-Sleep -Milliseconds 500
-    if(Test-Path -LiteralPath $labStdout){$labOrigin=[regex]::Match((Get-Content -LiteralPath $labStdout -Raw),'https://[a-z0-9]+\.lhr\.life').Value}
+    if(Test-Path -LiteralPath $labStdout){$labOrigins=[regex]::Matches([string](Get-Content -LiteralPath $labStdout -Raw),'https://[a-z0-9]+\.lhr\.life');if($labOrigins.Count){$labOrigin=$labOrigins[$labOrigins.Count-1].Value}}
     if($labOrigin){break}
     $labLaunched.Refresh();if($labLaunched.HasExited){throw ('Tunnel failed. See '+$labStderr)}
 }
 if(-not $labOrigin){Stop-Process -Id $labLaunched.Id -ErrorAction SilentlyContinue;throw ('No tunnel URL received. See '+$labLogs)}
 @{provider='localhost.run';origin=$labOrigin;processId=$labLaunched.Id;startTicks=$labLaunched.StartTime.ToUniversalTime().Ticks.ToString();target='http://127.0.0.1:8000'} | ConvertTo-Json | Set-Content -LiteralPath $labStateFile -Encoding utf8
-& (Join-Path $labRoot 'groupchat_app_src\backend\.venv\Scripts\python.exe') -B (Join-Path $PSScriptRoot 'configure_part2.py') --url $labOrigin
-if($LASTEXITCODE -ne 0){throw 'TWA origin configuration failed'}
+if(-not $SkipConfigure){
+    & (Join-Path $labRoot 'groupchat_app_src\backend\.venv\Scripts\python.exe') -B (Join-Path $PSScriptRoot 'configure_part2.py') --url $labOrigin
+    if($LASTEXITCODE -ne 0){throw 'TWA origin configuration failed'}
+}
 Write-Output ('Lab9 HTTPS tunnel: '+$labOrigin)
 Write-Output 'The origin has changed. Rebuild using Android Studio Generate APKs, then reinstall the APK.'
 Write-Output 'Keep this computer and the tunnel running during the demo. Stop with scripts\start_part2_tunnel.ps1 -Stop.'
