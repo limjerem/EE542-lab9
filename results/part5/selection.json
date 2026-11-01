@@ -1,0 +1,8 @@
+{
+  "seed": 542,
+  "k": 128,
+  "hybrid_alpha": 0.25,
+  "artifact_directory": "local_artifacts/part5/run-20261101T050309Z/seed542/k128",
+  "selection_split": "dev",
+  "primary_histogram": "tfidf_hellinger"
+}

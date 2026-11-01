@@ -1,0 +1,171 @@
+{
+  "timestamp_utc": "2026-11-01T05:03:27.537545+00:00",
+  "base_commit": "ed37871dd6d0b248dde52f180780ec833458e774",
+  "source_changes_uncommitted": true,
+  "configured_git_author": "N0tSync <tyzccs6@gmail.com>",
+  "corpus": {
+    "source": "embedding/index_data/chunks.json",
+    "sha256": "a154a211abf57d6a8ba92292105d24d2736df9eae9934e17e24cbb032c505f11",
+    "documents": [
+      {
+        "source_id": 0,
+        "filename": "Ads cookbook .pdf",
+        "sha256": "2ce9256d5b5623236ebb37e9f736e060e18e2a20c3435335497e1aef40a87556",
+        "pages": 124
+      }
+    ],
+    "chunks": 771,
+    "token_occurrences": 53001,
+    "vocabulary_size": 4054,
+    "overlap_retained": 100
+  },
+  "selected": {
+    "seed": 542,
+    "k": 128,
+    "hybrid_alpha": 0.25,
+    "artifact_directory": "local_artifacts/part5/run-20261101T050309Z/seed542/k128",
+    "selection_split": "dev",
+    "primary_histogram": "tfidf_hellinger"
+  },
+  "held_out_questions": 18,
+  "development_questions": 12,
+  "primary_seed_test": [
+    {
+      "seed": 542,
+      "k": 128,
+      "method": "hard_histogram",
+      "alpha": 0.5,
+      "split": "test",
+      "hit_at_1": 0.2777777777777778,
+      "hit_at_3": 0.3888888888888889,
+      "hit_at_5": 0.5,
+      "mrr_at_10": 0.3728395061728395,
+      "queries": 18
+    },
+    {
+      "seed": 542,
+      "k": 128,
+      "method": "stopword_histogram",
+      "alpha": 0.5,
+      "split": "test",
+      "hit_at_1": 0.3888888888888889,
+      "hit_at_3": 0.5,
+      "hit_at_5": 0.5555555555555556,
+      "mrr_at_10": 0.4490740740740741,
+      "queries": 18
+    },
+    {
+      "seed": 542,
+      "k": 128,
+      "method": "tfidf_hellinger",
+      "alpha": 0.5,
+      "split": "test",
+      "hit_at_1": 0.3888888888888889,
+      "hit_at_3": 0.5555555555555556,
+      "hit_at_5": 0.6111111111111112,
+      "mrr_at_10": 0.4810846560846561,
+      "queries": 18
+    },
+    {
+      "seed": 542,
+      "k": 128,
+      "method": "hybrid_tfidf",
+      "alpha": 0.25,
+      "split": "test",
+      "hit_at_1": 0.8333333333333334,
+      "hit_at_3": 0.9444444444444444,
+      "hit_at_5": 1.0,
+      "mrr_at_10": 0.8814814814814815,
+      "queries": 18
+    },
+    {
+      "seed": 542,
+      "k": 128,
+      "method": "lexical_tfidf",
+      "alpha": 0.5,
+      "split": "test",
+      "hit_at_1": 0.8888888888888888,
+      "hit_at_3": 0.9444444444444444,
+      "hit_at_5": 1.0,
+      "mrr_at_10": 0.9185185185185184,
+      "queries": 18
+    }
+  ],
+  "seed_robustness": {
+    "hard_histogram": {
+      "hit_at_5": {
+        "mean": 0.611111111111111,
+        "std": 0.0785674201318386
+      },
+      "mrr_at_10": {
+        "mean": 0.4176440329218107,
+        "std": 0.03180818070937046
+      }
+    },
+    "stopword_histogram": {
+      "hit_at_5": {
+        "mean": 0.6111111111111112,
+        "std": 0.04536092116265142
+      },
+      "mrr_at_10": {
+        "mean": 0.5059082892416226,
+        "std": 0.04335051618276222
+      }
+    },
+    "tfidf_hellinger": {
+      "hit_at_5": {
+        "mean": 0.6481481481481483,
+        "std": 0.05237828008789238
+      },
+      "mrr_at_10": {
+        "mean": 0.48689006466784246,
+        "std": 0.006458528480375458
+      }
+    },
+    "hybrid_tfidf": {
+      "hit_at_5": {
+        "mean": 0.9629629629629629,
+        "std": 0.026189140043946214
+      },
+      "mrr_at_10": {
+        "mean": 0.8608465608465607,
+        "std": 0.014591092310198653
+      }
+    },
+    "lexical_tfidf": {
+      "hit_at_5": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "mrr_at_10": {
+        "mean": 0.9185185185185184,
+        "std": 0.0
+      }
+    }
+  },
+  "seconds": 18.76687346499989,
+  "paid_api_requests": 0,
+  "packages": {
+    "gensim": "4.4.0",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2"
+  },
+  "python": "3.12.16",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "code_sha256": {
+    "part5/__init__.py": "0b755bacdec08723b6942913edf0f78aedd1d87ca34c192d5f290895ab2fa64f",
+    "part5/cli.py": "2d67b3bc06f97566cc29bebb2eb38dbfeeef3409f8dc12cda67b89522fceb316",
+    "part5/experiment.py": "c99452c13d40e7430bdb34db88a6632980d935afd8b0ad0bc537e9523d5796c8",
+    "part5/histogram.py": "775f7030953b2386a5247d007ffa9c33e63bc1a737c1e0922c6182d341b36f37",
+    "part5/kmeans.py": "7149e95a71601dfc9d0ac681570fb8a1cca0cd739ace3f129076317908ee104b",
+    "part5/verify.py": "1ff523c66599f051abc739fe65244ec447c13504fb18c19bc093453d02419fd1"
+  },
+  "limitations": [
+    "One small English course document; vocabulary includes rare extraction artifacts.",
+    "Questions and page labels are Codex-assisted authored diagnostics, not independently adjudicated.",
+    "Page relevance is coarse and not exhaustive; overlap creates related chunks.",
+    "Development/test queries are held out from fitting, not the source document itself.",
+    "Hybrid adds lexical TF-IDF scores; it is not a pure K-dimensional histogram improvement."
+  ]
+}

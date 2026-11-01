@@ -3,38 +3,59 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Group Chat + LLM Bot</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>ADS / RF Study Assistant</title>
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <div class="container">
-    <div class="auth" id="auth">
-      <h1>Group Chat</h1>
-      <p>Create an account or log in to join the chat.</p>
-      <div class="row">
-        <input id="username" placeholder="Username" autocomplete="username" maxlength="50">
-        <input id="password" placeholder="Password" type="password" autocomplete="current-password" minlength="8" maxlength="72">
+  <main class="container">
+    <section class="auth panel" id="auth">
+      <p class="eyebrow">EE542 · Shared study room</p>
+      <h1>ADS / RF Study Assistant</h1>
+      <p>Discuss circuit design and ask questions grounded in your course documents.</p>
+      <form id="authForm">
+        <label for="username">Username</label>
+        <input id="username" autocomplete="username" minlength="3" maxlength="50" required>
+        <label for="password">Password</label>
+        <input id="password" type="password" autocomplete="current-password" minlength="8" maxlength="72" required>
+        <div class="row"><button id="loginBtn" type="submit">Log In</button><button id="signupBtn" type="button" class="secondary">Sign Up</button></div>
+      </form>
+      <p id="authMsg" class="error" role="alert"></p>
+    </section>
+    <section class="chat hidden" id="chat">
+      <header class="header panel">
+        <div><p class="eyebrow">Shared study room</p><h1 id="topicName">ADS / RF Study Assistant</h1></div>
+        <div class="account"><span id="connectionStatus" class="pill">Connecting</span><span id="currentUser"></span><button id="logoutBtn" class="secondary">Log Out</button></div>
+      </header>
+      <div class="app-grid">
+        <aside class="panel sidebar" aria-label="Knowledge base">
+          <div class="section-title"><h2>Knowledge base</h2><button id="refreshDocs" class="small secondary">Refresh</button></div>
+          <p id="knowledgeStatus" class="muted" role="status">Loading documents...</p>
+          <ul id="docList" class="document-list"></ul>
+          <form id="uploadForm">
+            <label for="fileInput">Add documents</label>
+            <input id="fileInput" type="file" multiple accept=".pdf,.txt,.md,.html,.htm" disabled>
+            <p class="muted small">PDF, text or HTML · up to 25 MB per file</p>
+            <button id="uploadBtn" disabled>Upload documents</button>
+          </form>
+          <p id="uploadAvailability" class="muted"></p>
+          <p id="uploadMsg" class="feedback" role="status"></p>
+          <p id="docsError" class="error" role="alert"></p>
+        </aside>
+        <section class="panel conversation" aria-label="Group conversation">
+          <p class="hint">Use a question mark or start with @bot to ask the assistant. Recent messages in this shared room provide follow-up context.</p>
+          <div id="messages" class="messages" aria-label="Messages" aria-live="polite"></div>
+          <p id="botStatus" class="muted" role="status"></p>
+          <p id="chatError" class="error" role="alert"></p>
+          <form id="composer" class="composer">
+            <label class="sr-only" for="chatInput">Message</label>
+            <textarea id="chatInput" placeholder="Ask about ADS, or message the group..." rows="2" maxlength="4000" required></textarea>
+            <button id="sendBtn">Send</button>
+          </form>
+          <p class="muted small">Enter to send · Shift+Enter for a new line · Expand retrieved passages to check the evidence.</p>
+        </section>
       </div>
-      <div class="row">
-        <button id="signupBtn">Sign Up</button>
-        <button id="loginBtn">Log In</button>
-      </div>
-      <div class="hint">Hint: messages that contain a question mark “?” or “？” will trigger an LLM reply.</div>
-      <div id="authMsg" class="msg"></div>
-    </div>
-    <div class="chat hidden" id="chat">
-      <div class="header">
-        <div><h2>Group Chat</h2><div id="connectionStatus" class="hint" role="status">Connecting…</div></div>
-        <button id="logoutBtn">Log Out</button>
-      </div>
-      <div id="messages" class="messages"></div>
-      <div class="composer">
-        <input id="chatInput" placeholder="Type a message…">
-        <button id="sendBtn">Send</button>
-      </div>
-      <div id="chatMsg" class="msg" role="status"></div>
-    </div>
-  </div>
-  <script src="app.js"></script>
+    </section>
+  </main>
+  <script src="/app.js"></script>
 </body>
 </html>

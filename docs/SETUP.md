@@ -2,18 +2,40 @@
 
 Use Python 3.12. Keep credentials in local `.env` files.
 
-## Part 1
+## Group chat (Parts 1 and 4)
 
 Configure `groupchat_app_src/.env` from its example. Start MySQL and the existing
 Llama endpoint, then launch the website from the repository root:
 
 ```bash
-.venv/bin/python -m uvicorn app:app --app-dir groupchat_app_src/backend --host 0.0.0.0 --port 8000
+RAG_REUSE_ONLY=1 .venv/bin/python -m uvicorn app:app --app-dir groupchat_app_src/backend --host 127.0.0.1 --port 8000
 ```
 
-The application uses the instructor's FastAPI/HTML template with the local working
-configuration. Dependencies are in `groupchat_app_src/backend/requirements.txt`.
-The tested password packages are passlib 1.7.4 and bcrypt 4.0.1.
+Open http://localhost:8000 and sign up or log in. The group chat now retrieves
+from the shared upload knowledge base and uses the configured local Llama endpoint.
+Uploads, failed-document retry, source passages and group history share one website.
+The application extends the instructor's FastAPI/HTML template. Dependencies are in `groupchat_app_src/backend/requirements.txt`.
+The merged backend uses bcrypt directly; the tested version is 4.3.0.
+
+The local OpenAI embedding key is read from embedding/.env when not already set.
+KB_DIR selects the shared document store; omit it to use kb_store. Existing vectors
+have been reused locally; no bulk import is needed. Query vectors are cached, and
+the answer runs on the local model. RAG_REUSE_ONLY=1 blocks uncached document
+embeddings; omit it only when intentionally indexing new material. Original Part 3
+indexes and database tables remain available independently.
+For a completely cache-only verification, RAG_QUERY_REUSE_ONLY=1 also rejects
+uncached question vectors. Leave that optional flag unset for normal new questions.
+
+If Llama is stopped, run the existing build and weights from the parent Lab9 directory:
+
+```bash
+./llama.cpp/build/bin/llama-server \
+  --model models/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf --alias lab9-llama \
+  --host 127.0.0.1 --port 8001 --ctx-size 4096 --parallel 1 --n-gpu-layers all
+```
+
+Use one web writer process. Pending assistant jobs are in memory; completed answers
+and their citations are stored in MySQL. See PART4_INTERFACES.md for the API contract.
 
 ## Part 3
 

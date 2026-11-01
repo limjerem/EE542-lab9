@@ -1,0 +1,527 @@
+[
+  {
+    "seed": 542,
+    "algorithm": "Gensim skip-gram with negative sampling",
+    "gensim_version": "4.4.0",
+    "fast_version": 0,
+    "fallback_used": false,
+    "pretrained_vectors": false,
+    "vector_size": 100,
+    "window": 5,
+    "min_count": 1,
+    "sg": 1,
+    "negative": 10,
+    "sample": 0.001,
+    "workers": 1,
+    "epochs": 30,
+    "pythonhashseed": "0",
+    "vocabulary_size": 4054,
+    "corpus_count": 771,
+    "corpus_total_words": 53001,
+    "seconds": 4.584398429999965,
+    "training_loss": [
+      {
+        "epoch": 1,
+        "reported_cumulative_loss": 960024.4375,
+        "epoch_loss": 960024.4375
+      },
+      {
+        "epoch": 2,
+        "reported_cumulative_loss": 1670461.125,
+        "epoch_loss": 710436.6875
+      },
+      {
+        "epoch": 3,
+        "reported_cumulative_loss": 2324461.0,
+        "epoch_loss": 653999.875
+      },
+      {
+        "epoch": 4,
+        "reported_cumulative_loss": 2915334.25,
+        "epoch_loss": 590873.25
+      },
+      {
+        "epoch": 5,
+        "reported_cumulative_loss": 3493154.25,
+        "epoch_loss": 577820.0
+      },
+      {
+        "epoch": 6,
+        "reported_cumulative_loss": 4054183.5,
+        "epoch_loss": 561029.25
+      },
+      {
+        "epoch": 7,
+        "reported_cumulative_loss": 4563288.5,
+        "epoch_loss": 509105.0
+      },
+      {
+        "epoch": 8,
+        "reported_cumulative_loss": 5042834.0,
+        "epoch_loss": 479545.5
+      },
+      {
+        "epoch": 9,
+        "reported_cumulative_loss": 5519112.5,
+        "epoch_loss": 476278.5
+      },
+      {
+        "epoch": 10,
+        "reported_cumulative_loss": 5984885.5,
+        "epoch_loss": 465773.0
+      },
+      {
+        "epoch": 11,
+        "reported_cumulative_loss": 6445879.0,
+        "epoch_loss": 460993.5
+      },
+      {
+        "epoch": 12,
+        "reported_cumulative_loss": 6902399.5,
+        "epoch_loss": 456520.5
+      },
+      {
+        "epoch": 13,
+        "reported_cumulative_loss": 7353413.0,
+        "epoch_loss": 451013.5
+      },
+      {
+        "epoch": 14,
+        "reported_cumulative_loss": 7799556.5,
+        "epoch_loss": 446143.5
+      },
+      {
+        "epoch": 15,
+        "reported_cumulative_loss": 8240158.0,
+        "epoch_loss": 440601.5
+      },
+      {
+        "epoch": 16,
+        "reported_cumulative_loss": 8652536.0,
+        "epoch_loss": 412378.0
+      },
+      {
+        "epoch": 17,
+        "reported_cumulative_loss": 9050067.0,
+        "epoch_loss": 397531.0
+      },
+      {
+        "epoch": 18,
+        "reported_cumulative_loss": 9441952.0,
+        "epoch_loss": 391885.0
+      },
+      {
+        "epoch": 19,
+        "reported_cumulative_loss": 9832105.0,
+        "epoch_loss": 390153.0
+      },
+      {
+        "epoch": 20,
+        "reported_cumulative_loss": 10216882.0,
+        "epoch_loss": 384777.0
+      },
+      {
+        "epoch": 21,
+        "reported_cumulative_loss": 10602852.0,
+        "epoch_loss": 385970.0
+      },
+      {
+        "epoch": 22,
+        "reported_cumulative_loss": 10987762.0,
+        "epoch_loss": 384910.0
+      },
+      {
+        "epoch": 23,
+        "reported_cumulative_loss": 11369810.0,
+        "epoch_loss": 382048.0
+      },
+      {
+        "epoch": 24,
+        "reported_cumulative_loss": 11752626.0,
+        "epoch_loss": 382816.0
+      },
+      {
+        "epoch": 25,
+        "reported_cumulative_loss": 12132637.0,
+        "epoch_loss": 380011.0
+      },
+      {
+        "epoch": 26,
+        "reported_cumulative_loss": 12513195.0,
+        "epoch_loss": 380558.0
+      },
+      {
+        "epoch": 27,
+        "reported_cumulative_loss": 12889530.0,
+        "epoch_loss": 376335.0
+      },
+      {
+        "epoch": 28,
+        "reported_cumulative_loss": 13265607.0,
+        "epoch_loss": 376077.0
+      },
+      {
+        "epoch": 29,
+        "reported_cumulative_loss": 13642452.0,
+        "epoch_loss": 376845.0
+      },
+      {
+        "epoch": 30,
+        "reported_cumulative_loss": 14020175.0,
+        "epoch_loss": 377723.0
+      }
+    ],
+    "model_sha256": "de30bb7f170e073312e85e35042fec1775f75db58944ccb3c154d7e4cea834e2",
+    "raw_vectors_sha256": "2814558e2096c24c5b567d63532c55f60a6992b4f4fb0cb7c8d7a0525363d734"
+  },
+  {
+    "seed": 42,
+    "algorithm": "Gensim skip-gram with negative sampling",
+    "gensim_version": "4.4.0",
+    "fast_version": 0,
+    "fallback_used": false,
+    "pretrained_vectors": false,
+    "vector_size": 100,
+    "window": 5,
+    "min_count": 1,
+    "sg": 1,
+    "negative": 10,
+    "sample": 0.001,
+    "workers": 1,
+    "epochs": 30,
+    "pythonhashseed": "0",
+    "vocabulary_size": 4054,
+    "corpus_count": 771,
+    "corpus_total_words": 53001,
+    "seconds": 4.577088611999898,
+    "training_loss": [
+      {
+        "epoch": 1,
+        "reported_cumulative_loss": 950764.3125,
+        "epoch_loss": 950764.3125
+      },
+      {
+        "epoch": 2,
+        "reported_cumulative_loss": 1660930.375,
+        "epoch_loss": 710166.0625
+      },
+      {
+        "epoch": 3,
+        "reported_cumulative_loss": 2314933.5,
+        "epoch_loss": 654003.125
+      },
+      {
+        "epoch": 4,
+        "reported_cumulative_loss": 2905302.25,
+        "epoch_loss": 590368.75
+      },
+      {
+        "epoch": 5,
+        "reported_cumulative_loss": 3481691.5,
+        "epoch_loss": 576389.25
+      },
+      {
+        "epoch": 6,
+        "reported_cumulative_loss": 4041635.25,
+        "epoch_loss": 559943.75
+      },
+      {
+        "epoch": 7,
+        "reported_cumulative_loss": 4551331.5,
+        "epoch_loss": 509696.25
+      },
+      {
+        "epoch": 8,
+        "reported_cumulative_loss": 5033121.5,
+        "epoch_loss": 481790.0
+      },
+      {
+        "epoch": 9,
+        "reported_cumulative_loss": 5505913.0,
+        "epoch_loss": 472791.5
+      },
+      {
+        "epoch": 10,
+        "reported_cumulative_loss": 5972005.5,
+        "epoch_loss": 466092.5
+      },
+      {
+        "epoch": 11,
+        "reported_cumulative_loss": 6431492.0,
+        "epoch_loss": 459486.5
+      },
+      {
+        "epoch": 12,
+        "reported_cumulative_loss": 6891991.5,
+        "epoch_loss": 460499.5
+      },
+      {
+        "epoch": 13,
+        "reported_cumulative_loss": 7342116.0,
+        "epoch_loss": 450124.5
+      },
+      {
+        "epoch": 14,
+        "reported_cumulative_loss": 7787411.5,
+        "epoch_loss": 445295.5
+      },
+      {
+        "epoch": 15,
+        "reported_cumulative_loss": 8227552.5,
+        "epoch_loss": 440141.0
+      },
+      {
+        "epoch": 16,
+        "reported_cumulative_loss": 8644559.0,
+        "epoch_loss": 417006.5
+      },
+      {
+        "epoch": 17,
+        "reported_cumulative_loss": 9041649.0,
+        "epoch_loss": 397090.0
+      },
+      {
+        "epoch": 18,
+        "reported_cumulative_loss": 9438101.0,
+        "epoch_loss": 396452.0
+      },
+      {
+        "epoch": 19,
+        "reported_cumulative_loss": 9830398.0,
+        "epoch_loss": 392297.0
+      },
+      {
+        "epoch": 20,
+        "reported_cumulative_loss": 10219574.0,
+        "epoch_loss": 389176.0
+      },
+      {
+        "epoch": 21,
+        "reported_cumulative_loss": 10605690.0,
+        "epoch_loss": 386116.0
+      },
+      {
+        "epoch": 22,
+        "reported_cumulative_loss": 10993507.0,
+        "epoch_loss": 387817.0
+      },
+      {
+        "epoch": 23,
+        "reported_cumulative_loss": 11378476.0,
+        "epoch_loss": 384969.0
+      },
+      {
+        "epoch": 24,
+        "reported_cumulative_loss": 11761473.0,
+        "epoch_loss": 382997.0
+      },
+      {
+        "epoch": 25,
+        "reported_cumulative_loss": 12143710.0,
+        "epoch_loss": 382237.0
+      },
+      {
+        "epoch": 26,
+        "reported_cumulative_loss": 12524620.0,
+        "epoch_loss": 380910.0
+      },
+      {
+        "epoch": 27,
+        "reported_cumulative_loss": 12902432.0,
+        "epoch_loss": 377812.0
+      },
+      {
+        "epoch": 28,
+        "reported_cumulative_loss": 13279401.0,
+        "epoch_loss": 376969.0
+      },
+      {
+        "epoch": 29,
+        "reported_cumulative_loss": 13659356.0,
+        "epoch_loss": 379955.0
+      },
+      {
+        "epoch": 30,
+        "reported_cumulative_loss": 14035446.0,
+        "epoch_loss": 376090.0
+      }
+    ],
+    "model_sha256": "47b4235d604fe0750933fc83586cb1e754827648795b4728d14a55c230b815d1",
+    "raw_vectors_sha256": "fa180f0e18b357b9c827b286f217126d34218fbc025eb5a7da07e288dcc725de"
+  },
+  {
+    "seed": 2026,
+    "algorithm": "Gensim skip-gram with negative sampling",
+    "gensim_version": "4.4.0",
+    "fast_version": 0,
+    "fallback_used": false,
+    "pretrained_vectors": false,
+    "vector_size": 100,
+    "window": 5,
+    "min_count": 1,
+    "sg": 1,
+    "negative": 10,
+    "sample": 0.001,
+    "workers": 1,
+    "epochs": 30,
+    "pythonhashseed": "0",
+    "vocabulary_size": 4054,
+    "corpus_count": 771,
+    "corpus_total_words": 53001,
+    "seconds": 4.6319678489999205,
+    "training_loss": [
+      {
+        "epoch": 1,
+        "reported_cumulative_loss": 954985.9375,
+        "epoch_loss": 954985.9375
+      },
+      {
+        "epoch": 2,
+        "reported_cumulative_loss": 1665940.375,
+        "epoch_loss": 710954.4375
+      },
+      {
+        "epoch": 3,
+        "reported_cumulative_loss": 2319621.0,
+        "epoch_loss": 653680.625
+      },
+      {
+        "epoch": 4,
+        "reported_cumulative_loss": 2906669.5,
+        "epoch_loss": 587048.5
+      },
+      {
+        "epoch": 5,
+        "reported_cumulative_loss": 3481701.0,
+        "epoch_loss": 575031.5
+      },
+      {
+        "epoch": 6,
+        "reported_cumulative_loss": 4046860.75,
+        "epoch_loss": 565159.75
+      },
+      {
+        "epoch": 7,
+        "reported_cumulative_loss": 4551436.5,
+        "epoch_loss": 504575.75
+      },
+      {
+        "epoch": 8,
+        "reported_cumulative_loss": 5031247.5,
+        "epoch_loss": 479811.0
+      },
+      {
+        "epoch": 9,
+        "reported_cumulative_loss": 5506213.5,
+        "epoch_loss": 474966.0
+      },
+      {
+        "epoch": 10,
+        "reported_cumulative_loss": 5973779.5,
+        "epoch_loss": 467566.0
+      },
+      {
+        "epoch": 11,
+        "reported_cumulative_loss": 6437608.5,
+        "epoch_loss": 463829.0
+      },
+      {
+        "epoch": 12,
+        "reported_cumulative_loss": 6892585.0,
+        "epoch_loss": 454976.5
+      },
+      {
+        "epoch": 13,
+        "reported_cumulative_loss": 7342310.5,
+        "epoch_loss": 449725.5
+      },
+      {
+        "epoch": 14,
+        "reported_cumulative_loss": 7790718.0,
+        "epoch_loss": 448407.5
+      },
+      {
+        "epoch": 15,
+        "reported_cumulative_loss": 8232870.5,
+        "epoch_loss": 442152.5
+      },
+      {
+        "epoch": 16,
+        "reported_cumulative_loss": 8649486.0,
+        "epoch_loss": 416615.5
+      },
+      {
+        "epoch": 17,
+        "reported_cumulative_loss": 9045517.0,
+        "epoch_loss": 396031.0
+      },
+      {
+        "epoch": 18,
+        "reported_cumulative_loss": 9439616.0,
+        "epoch_loss": 394099.0
+      },
+      {
+        "epoch": 19,
+        "reported_cumulative_loss": 9831411.0,
+        "epoch_loss": 391795.0
+      },
+      {
+        "epoch": 20,
+        "reported_cumulative_loss": 10222957.0,
+        "epoch_loss": 391546.0
+      },
+      {
+        "epoch": 21,
+        "reported_cumulative_loss": 10607828.0,
+        "epoch_loss": 384871.0
+      },
+      {
+        "epoch": 22,
+        "reported_cumulative_loss": 10992301.0,
+        "epoch_loss": 384473.0
+      },
+      {
+        "epoch": 23,
+        "reported_cumulative_loss": 11376585.0,
+        "epoch_loss": 384284.0
+      },
+      {
+        "epoch": 24,
+        "reported_cumulative_loss": 11758894.0,
+        "epoch_loss": 382309.0
+      },
+      {
+        "epoch": 25,
+        "reported_cumulative_loss": 12140635.0,
+        "epoch_loss": 381741.0
+      },
+      {
+        "epoch": 26,
+        "reported_cumulative_loss": 12521043.0,
+        "epoch_loss": 380408.0
+      },
+      {
+        "epoch": 27,
+        "reported_cumulative_loss": 12899629.0,
+        "epoch_loss": 378586.0
+      },
+      {
+        "epoch": 28,
+        "reported_cumulative_loss": 13277365.0,
+        "epoch_loss": 377736.0
+      },
+      {
+        "epoch": 29,
+        "reported_cumulative_loss": 13654434.0,
+        "epoch_loss": 377069.0
+      },
+      {
+        "epoch": 30,
+        "reported_cumulative_loss": 14030919.0,
+        "epoch_loss": 376485.0
+      }
+    ],
+    "model_sha256": "01b97d7263f9e6da8d65c0c8ee8b225d422d8e0759261ee57467fb33afa8de2a",
+    "raw_vectors_sha256": "d03ed9863ac4b27ec5ddbd882c08458b47aa8f9268f406560d86bd53e3af8aa8"
+  }
+]

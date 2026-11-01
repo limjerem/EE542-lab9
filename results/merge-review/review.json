@@ -1,0 +1,54 @@
+{
+  "timestamp_utc": "2026-11-01T04:46:45.849957+00:00",
+  "previous_base": "48f5208ac2500089676890d8d7559bdfcaa2f468",
+  "merged_base": "ed37871dd6d0b248dde52f180780ec833458e774",
+  "merge_method": "Fast-forward remote history, then restore and reconcile backed-up uncommitted changes without creating a commit.",
+  "backup_directory": "/home/n0tsync/Documents/EE542/Lab9/local_backups/before-remote-merge-r4s3obkj",
+  "conflicts_resolved": [
+    "groupchat_app_src/backend/app.py",
+    "groupchat_app_src/backend/requirements.txt",
+    "groupchat_app_src/frontend/app.js",
+    "groupchat_app_src/frontend/index.html",
+    "groupchat_app_src/frontend/styles.css"
+  ],
+  "regression_tests": 20,
+  "part1_live_checks": 42,
+  "part1_live_status": "passed",
+  "part3_upload_checks": 6,
+  "part4_browser_checks": 17,
+  "document_embedding_requests": 0,
+  "new_query_vectors": 1,
+  "answer_provider": "local Llama",
+  "preliminary_attempts": [
+    {
+      "stage": "browser launch",
+      "outcome": "failed",
+      "reason": "Previously installed headless browser was absent from /tmp; restored browser only, no model download."
+    },
+    {
+      "stage": "query cache-only browser run",
+      "outcome": "stopped at follow-up",
+      "reason": "A new local-model query rewrite was not cached; the explicit query reuse-only guard rejected it. No paid embedding request occurred in that attempt."
+    }
+  ],
+  "contributor_android_artifacts": {
+    "app-https-debug.apk": "not included in remote Git tree",
+    "screenshots/android-https-04-twa-final.png": "not included in remote Git tree",
+    "android-https-verification.json": "not included in remote Git tree",
+    "twa-verification.json": "not included in remote Git tree",
+    "https-verification.json": "not included in remote Git tree",
+    "mysql-evidence.json": "not included in remote Git tree"
+  },
+  "progress": {
+    "part1": "Verified after merge",
+    "part2": "Contributor reports completed TWA; detailed device evidence not included and not rerun here",
+    "part3": "Merged fixes, regression suite, real SQL/index and cached upload checks passed; prior OpenAI answer acceptance retained",
+    "part4_web": "Integrated and verified against real shared upload backend",
+    "part4_android": "New shared knowledge/upload/citation flow not yet verified on Android",
+    "part4_corpus": "Five local reused documents and 784 vectors verified; six-source curated import not rerun",
+    "part5": "Not implemented or experimentally verified in current repository",
+    "video": "Three-person short script drafted in conversation; recording not produced"
+  },
+  "no_new_commit": true,
+  "no_push": true
+}

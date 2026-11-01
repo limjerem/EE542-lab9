@@ -8,7 +8,7 @@ class Embeddings:
     def embed_query(self,text):return [1.,2.,3.]
 
 def document(text,identifier):
-    return Document(page_content=text,metadata={'chunk_id':identifier,'source':'课程资料.txt','page':1})
+    return Document(page_content=text,metadata={'chunk_id':identifier,'source':'course-notes-\u03bc.txt','page':1})
 
 def test_search_keeps_matching_index_and_metadata_when_writer_publishes(tmp_path):
     store=VectorStore(tmp_path,Embeddings(),{'backend':'test'})
@@ -28,7 +28,7 @@ def test_search_keeps_matching_index_and_metadata_when_writer_publishes(tmp_path
 
 def test_utf8_snapshot_survives_non_utf8_windows_default(tmp_path,monkeypatch):
     store=VectorStore(tmp_path,Embeddings(),{'backend':'test'})
-    store.add_documents([document('中文资料和微波电路 μ','one')])
+    store.add_documents([document('Microwave circuits, caf\u00e9, and \u03bc','one')])
     read_text=Path.read_text
     def windows_read(self,*args,**kwargs):
         if 'encoding' not in kwargs:kwargs['encoding']='cp1252'
@@ -36,8 +36,8 @@ def test_utf8_snapshot_survives_non_utf8_windows_default(tmp_path,monkeypatch):
     monkeypatch.setattr(Path,'read_text',windows_read)
     reopened=VectorStore(tmp_path,Embeddings(),{'backend':'test'})
     reopened.load()
-    assert reopened.documents[0].page_content=='中文资料和微波电路 μ'
-    assert reopened.documents[0].metadata['source']=='课程资料.txt'
+    assert reopened.documents[0].page_content=='Microwave circuits, caf\u00e9, and \u03bc'
+    assert reopened.documents[0].metadata['source']=='course-notes-\u03bc.txt'
 
 
 def test_upload_ui_keeps_retrieved_passages_for_previous_turns(monkeypatch):

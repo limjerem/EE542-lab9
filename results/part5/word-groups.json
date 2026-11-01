@@ -1,0 +1,2156 @@
+[
+  {
+    "bin": 0,
+    "word_types": 64,
+    "representative_words": [
+      "timestop",
+      "w1",
+      "w2",
+      "numericstop",
+      "w3",
+      "qam_demod",
+      "cri",
+      "teria",
+      "usec",
+      "limit1",
+      "ndesnsity",
+      "timedtofloat"
+    ]
+  },
+  {
+    "bin": 1,
+    "word_types": 28,
+    "representative_words": [
+      "detailed",
+      "plays",
+      "essential",
+      "lect",
+      "havi",
+      "attractive",
+      "imported",
+      "se",
+      "solvers",
+      "convenient",
+      "capabilities",
+      "cosimulation"
+    ]
+  },
+  {
+    "bin": 2,
+    "word_types": 57,
+    "representative_words": [
+      "confusion",
+      "touchstone",
+      "designkit",
+      "lab5_rf_systemdesign_wrk",
+      "mdif",
+      "avoid",
+      "cosim_wrk",
+      "ads_install_dir",
+      "causes",
+      "citifile",
+      "unzipped",
+      "manage"
+    ]
+  },
+  {
+    "bin": 3,
+    "word_types": 17,
+    "representative_words": [
+      "ncreased",
+      "r2",
+      "stabiliza",
+      "increased",
+      "tuned",
+      "till",
+      "achieved",
+      "r3",
+      "ohms",
+      "reduced",
+      "kohm",
+      "match"
+    ]
+  },
+  {
+    "bin": 4,
+    "word_types": 27,
+    "representative_words": [
+      "coordi",
+      "locate",
+      "snap",
+      "nc1",
+      "pa_ip_power",
+      "bar",
+      "pos",
+      "4ghz",
+      "tk",
+      "deleting",
+      "menu",
+      "deembed"
+    ]
+  },
+  {
+    "bin": 5,
+    "word_types": 19,
+    "representative_words": [
+      "ficed",
+      "tend",
+      "sacrificed",
+      "mat",
+      "entire",
+      "unwanted",
+      "unity",
+      "rejection",
+      "stopping",
+      "ban",
+      "lowest",
+      "ch"
+    ]
+  },
+  {
+    "bin": 6,
+    "word_types": 20,
+    "representative_words": [
+      "ge",
+      "loop",
+      "closedloop",
+      "closed",
+      "sudden",
+      "effective",
+      "lar",
+      "checking",
+      "useful",
+      "followed",
+      "estimated",
+      "end"
+    ]
+  },
+  {
+    "bin": 7,
+    "word_types": 37,
+    "representative_words": [
+      "shortest",
+      "amplitudes",
+      "performs",
+      "period",
+      "xdb",
+      "1ghz",
+      "22dbm",
+      "10dbm",
+      "frequ",
+      "vel",
+      "le",
+      "phases"
+    ]
+  },
+  {
+    "bin": 8,
+    "word_types": 35,
+    "representative_words": [
+      "equa",
+      "crucial",
+      "preserves",
+      "flipped",
+      "child",
+      "sees",
+      "deciding",
+      "nput",
+      "internally",
+      "obeys",
+      "presence",
+      "load_z"
+    ]
+  },
+  {
+    "bin": 9,
+    "word_types": 40,
+    "representative_words": [
+      "reusing",
+      "online",
+      "rmonic",
+      "ha",
+      "surements",
+      "documentation",
+      "converting",
+      "book",
+      "cmp_resdes",
+      "sophisticated",
+      "oscport",
+      "read"
+    ]
+  },
+  {
+    "bin": 10,
+    "word_types": 47,
+    "representative_words": [
+      "whereas",
+      "crude",
+      "old",
+      "newer",
+      "tional",
+      "incapable",
+      "ble",
+      "weakness",
+      "addi",
+      "amenable",
+      "quality",
+      "inherently"
+    ]
+  },
+  {
+    "bin": 11,
+    "word_types": 110,
+    "representative_words": [
+      "itv",
+      "minmaxn",
+      "vviri",
+      "1p",
+      "nln",
+      "vvr",
+      "minmax",
+      "vvvdd",
+      "cothln",
+      "na",
+      "ml",
+      "dca"
+    ]
+  },
+  {
+    "bin": 12,
+    "word_types": 25,
+    "representative_words": [
+      "appr",
+      "oximation",
+      "g1",
+      "ation",
+      "g2",
+      "approxim",
+      "chebyshev",
+      "capacitances",
+      "g3",
+      "upstate",
+      "prototype",
+      "rol"
+    ]
+  },
+  {
+    "bin": 13,
+    "word_types": 7,
+    "representative_words": [
+      "unnecessary",
+      "mounted",
+      "exhibiting",
+      "having",
+      "sometimes",
+      "thus",
+      "up"
+    ]
+  },
+  {
+    "bin": 14,
+    "word_types": 62,
+    "representative_words": [
+      "avalanche",
+      "approximately",
+      "75v",
+      "reasonable",
+      "halfway",
+      "dssds",
+      "va",
+      "cos2",
+      "2v",
+      "pumped",
+      "vdd",
+      "induced"
+    ]
+  },
+  {
+    "bin": 15,
+    "word_types": 6,
+    "representative_words": [
+      "snapshots",
+      "advanced",
+      "eda",
+      "cookbook",
+      "design",
+      "system"
+    ]
+  },
+  {
+    "bin": 16,
+    "word_types": 62,
+    "representative_words": [
+      "mmics",
+      "suited",
+      "subsystems",
+      "stabilizing",
+      "boards",
+      "traditional",
+      "integrate",
+      "composite",
+      "containing",
+      "breaking",
+      "intellectual",
+      "architecture"
+    ]
+  },
+  {
+    "bin": 17,
+    "word_types": 6,
+    "representative_words": [
+      "bilateral",
+      "unilateral",
+      "study",
+      "case",
+      "formulae",
+      "when"
+    ]
+  },
+  {
+    "bin": 18,
+    "word_types": 40,
+    "representative_words": [
+      "5ghz",
+      "polar",
+      "fstop",
+      "fstart",
+      "1_tone",
+      "npts",
+      "imulation",
+      "term2",
+      "defaultnumericstart",
+      "additionally",
+      "nicely",
+      "forget"
+    ]
+  },
+  {
+    "bin": 19,
+    "word_types": 39,
+    "representative_words": [
+      "challenges",
+      "fit",
+      "trick",
+      "redefine",
+      "exported",
+      "accounted",
+      "mins",
+      "board",
+      "regarding",
+      "impractical",
+      "carefully",
+      "vias"
+    ]
+  },
+  {
+    "bin": 20,
+    "word_types": 2,
+    "representative_words": [
+      "current",
+      "waveform"
+    ]
+  },
+  {
+    "bin": 21,
+    "word_types": 29,
+    "representative_words": [
+      "partial",
+      "last",
+      "qspsk",
+      "subsequent",
+      "remaining",
+      "building",
+      "begin",
+      "manner",
+      "applying",
+      "creating",
+      "lpf",
+      "parametric"
+    ]
+  },
+  {
+    "bin": 22,
+    "word_types": 23,
+    "representative_words": [
+      "office12",
+      "x86",
+      "db_dbm",
+      "intel",
+      "microsoft",
+      "cmp_outp1",
+      "office",
+      "core",
+      "dual",
+      "nf_refln_db",
+      "cmp_nf_db",
+      "4gb"
+    ]
+  },
+  {
+    "bin": 23,
+    "word_types": 24,
+    "representative_words": [
+      "bit_rate",
+      "option1",
+      "100mhz",
+      "3e6",
+      "project",
+      "opposed",
+      "sec",
+      "1e6",
+      "suit",
+      "did",
+      "just",
+      "alternatively"
+    ]
+  },
+  {
+    "bin": 24,
+    "word_types": 53,
+    "representative_words": [
+      "srectangular",
+      "70mhz",
+      "pdel",
+      "dbm_max",
+      "continuous",
+      "displaying",
+      "gain_at_maxpower",
+      "resimulate",
+      "write",
+      "press",
+      "eqn",
+      "cmp_refdes"
+    ]
+  },
+  {
+    "bin": 25,
+    "word_types": 38,
+    "representative_words": [
+      "tighter",
+      "usual",
+      "solu",
+      "styles",
+      "criterion",
+      "ntly",
+      "occupied",
+      "inconsistent",
+      "differe",
+      "deflection",
+      "returned",
+      "rather"
+    ]
+  },
+  {
+    "bin": 26,
+    "word_types": 42,
+    "representative_words": [
+      "gj",
+      "intersecting",
+      "nn",
+      "37mm",
+      "ggnj",
+      "25mm",
+      "66mm",
+      "zoe",
+      "2w",
+      "lc3",
+      "zh",
+      "li"
+    ]
+  },
+  {
+    "bin": 27,
+    "word_types": 53,
+    "representative_words": [
+      "centering",
+      "adjusts",
+      "passing",
+      "involves",
+      "failing",
+      "slated",
+      "bability",
+      "accounting",
+      "estimation",
+      "random",
+      "maximize",
+      "evaluating"
+    ]
+  },
+  {
+    "bin": 28,
+    "word_types": 54,
+    "representative_words": [
+      "locally",
+      "temdesign_wrk",
+      "desire",
+      "dynam",
+      "lab18_qpsk_systemdesign_wrk",
+      "mapping",
+      "cockpit",
+      "temporary",
+      "vanish",
+      "whereby",
+      "implement",
+      "ever"
+    ]
+  },
+  {
+    "bin": 29,
+    "word_types": 25,
+    "representative_words": [
+      "c24",
+      "c25",
+      "c21",
+      "nam",
+      "token",
+      "modem",
+      "sive_smt_vendor_kit",
+      "convertors",
+      "prbs",
+      "unitless",
+      "setfc",
+      "code"
+    ]
+  },
+  {
+    "bin": 30,
+    "word_types": 31,
+    "representative_words": [
+      "sions",
+      "te",
+      "colors",
+      "thicknesses",
+      "sc",
+      "hematic",
+      "places",
+      "probes",
+      "afteramp",
+      "quantitative",
+      "periphery",
+      "beforeamp"
+    ]
+  },
+  {
+    "bin": 31,
+    "word_types": 33,
+    "representative_words": [
+      "corre",
+      "ct",
+      "6ma",
+      "ice",
+      "triquint",
+      "ured",
+      "meas",
+      "accomplish",
+      "motorola",
+      "mmbr941",
+      "ver",
+      "ified"
+    ]
+  },
+  {
+    "bin": 32,
+    "word_types": 38,
+    "representative_words": [
+      "ould",
+      "configured",
+      "diagram",
+      "sh",
+      "dsp_cosim_wrk",
+      "lab19_rf",
+      "meaningful",
+      "tabular",
+      "z1p_eqn",
+      "hot",
+      "nomenclature",
+      "limitmin"
+    ]
+  },
+  {
+    "bin": 33,
+    "word_types": 21,
+    "representative_words": [
+      "514ua",
+      "reused",
+      "ended",
+      "recomm",
+      "bia",
+      "overwritten",
+      "older",
+      "ength",
+      "terminate",
+      "exact",
+      "residual",
+      "actually"
+    ]
+  },
+  {
+    "bin": 34,
+    "word_types": 27,
+    "representative_words": [
+      "lead",
+      "mounting",
+      "ductive",
+      "connec",
+      "tapers",
+      "thickne",
+      "ists",
+      "photo",
+      "etched",
+      "5th",
+      "4th",
+      "transmissi"
+    ]
+  },
+  {
+    "bin": 35,
+    "word_types": 42,
+    "representative_words": [
+      "c22",
+      "c20",
+      "toko",
+      "sl_tok_ll2012",
+      "muratra",
+      "f_j_19960828",
+      "0g050_d_19960828",
+      "c23",
+      "uf",
+      "sc_mrt_mc_grm40c",
+      "0g050_j_19960828",
+      "c4"
+    ]
+  },
+  {
+    "bin": 36,
+    "word_types": 13,
+    "representative_words": [
+      "concurrently",
+      "resolve",
+      "though",
+      "carrier",
+      "indices",
+      "rd",
+      "combined",
+      "associated",
+      "characterization",
+      "frequencies",
+      "mhz",
+      "frequency"
+    ]
+  },
+  {
+    "bin": 37,
+    "word_types": 37,
+    "representative_words": [
+      "ensures",
+      "assembled",
+      "wherever",
+      "mimic",
+      "periodic",
+      "assembly",
+      "dc_block",
+      "exception",
+      "measeqn",
+      "parasitics",
+      "creation",
+      "pad"
+    ]
+  },
+  {
+    "bin": 38,
+    "word_types": 51,
+    "representative_words": [
+      "gonzalez",
+      "guillermo",
+      "everard",
+      "jeremy",
+      "p191",
+      "artech",
+      "erik",
+      "oscillators",
+      "radar",
+      "p211",
+      "splitting",
+      "house"
+    ]
+  },
+  {
+    "bin": 39,
+    "word_types": 25,
+    "representative_words": [
+      "finishe",
+      "dis",
+      "turns",
+      "noticed",
+      "cre",
+      "stating",
+      "res",
+      "ults",
+      "stops",
+      "addon",
+      "ated",
+      "discretelpf_opt"
+    ]
+  },
+  {
+    "bin": 40,
+    "word_types": 13,
+    "representative_words": [
+      "roll",
+      "68ghz",
+      "oll",
+      "uppe",
+      "cutoff",
+      "edges",
+      "shifted",
+      "off",
+      "specifications",
+      "lower",
+      "ghz",
+      "per"
+    ]
+  },
+  {
+    "bin": 41,
+    "word_types": 15,
+    "representative_words": [
+      "cup",
+      "ate",
+      "represent",
+      "position",
+      "state",
+      "switch",
+      "infinite",
+      "mems",
+      "gap",
+      "bridge",
+      "membrane",
+      "cdown"
+    ]
+  },
+  {
+    "bin": 42,
+    "word_types": 47,
+    "representative_words": [
+      "sort",
+      "idealized",
+      "entals",
+      "little",
+      "degraded",
+      "ups",
+      "fundam",
+      "ecting",
+      "demodula",
+      "pay",
+      "question",
+      "why"
+    ]
+  },
+  {
+    "bin": 43,
+    "word_types": 20,
+    "representative_words": [
+      "ku",
+      "struc",
+      "netwo",
+      "rk",
+      "hairpin",
+      "tures",
+      "materials",
+      "separates",
+      "military",
+      "padding",
+      "energy",
+      "perfect"
+    ]
+  },
+  {
+    "bin": 44,
+    "word_types": 2,
+    "representative_words": [
+      "from",
+      "library"
+    ]
+  },
+  {
+    "bin": 45,
+    "word_types": 35,
+    "representative_words": [
+      "s_params",
+      "ads_templates",
+      "unselect",
+      "10ua",
+      "deactivate",
+      "1ua",
+      "assigning",
+      "windows",
+      "happened",
+      "discuss",
+      "sp1",
+      "detail"
+    ]
+  },
+  {
+    "bin": 46,
+    "word_types": 25,
+    "representative_words": [
+      "pacitance",
+      "ave",
+      "cgso",
+      "l4",
+      "selector",
+      "compact",
+      "expecte",
+      "envout",
+      "s3",
+      "apacitive",
+      "libra",
+      "ition"
+    ]
+  },
+  {
+    "bin": 47,
+    "word_types": 1,
+    "representative_words": [
+      "order"
+    ]
+  },
+  {
+    "bin": 48,
+    "word_types": 23,
+    "representative_words": [
+      "flicker",
+      "resetting",
+      "altering",
+      "offset",
+      "corner",
+      "loaded",
+      "unloaded",
+      "resonant",
+      "vco",
+      "nf",
+      "frequenc",
+      "narrow"
+    ]
+  },
+  {
+    "bin": 49,
+    "word_types": 35,
+    "representative_words": [
+      "behaving",
+      "outlined",
+      "running",
+      "illustrate",
+      "understood",
+      "lengthy",
+      "starting",
+      "things",
+      "cases",
+      "remains",
+      "appreciable",
+      "before"
+    ]
+  },
+  {
+    "bin": 50,
+    "word_types": 54,
+    "representative_words": [
+      "substitute",
+      "constructing",
+      "answers",
+      "adopt",
+      "tends",
+      "rationale",
+      "straight",
+      "prototypes",
+      "polarization",
+      "rule",
+      "thumb",
+      "texts"
+    ]
+  },
+  {
+    "bin": 51,
+    "word_types": 23,
+    "representative_words": [
+      "upsample",
+      "upsam",
+      "occurred",
+      "lists",
+      "decreases",
+      "sent",
+      "arrowheads",
+      "version",
+      "spectra",
+      "further",
+      "caused",
+      "changed"
+    ]
+  },
+  {
+    "bin": 52,
+    "word_types": 53,
+    "representative_words": [
+      "89600a",
+      "rack",
+      "stems",
+      "websites",
+      "contacting",
+      "independently",
+      "license",
+      "methodology",
+      "mwckts",
+      "shape",
+      "tm61",
+      "tested"
+    ]
+  },
+  {
+    "bin": 53,
+    "word_types": 37,
+    "representative_words": [
+      "nous",
+      "synchro",
+      "arcs",
+      "programs",
+      "synthesizable",
+      "availability",
+      "waveforms",
+      "sends",
+      "adds",
+      "converters",
+      "driven",
+      "scheduled"
+    ]
+  },
+  {
+    "bin": 54,
+    "word_types": 18,
+    "representative_words": [
+      "stripline",
+      "coplanar",
+      "antennas",
+      "medium",
+      "pat",
+      "bpflpf",
+      "guide",
+      "simplest",
+      "hpf",
+      "simultaneously",
+      "structures",
+      "advantages"
+    ]
+  },
+  {
+    "bin": 55,
+    "word_types": 43,
+    "representative_words": [
+      "coupl",
+      "dimension",
+      "calculator",
+      "resi",
+      "belo",
+      "reconnect",
+      "bas",
+      "highlighted",
+      "drawn",
+      "li4",
+      "dropdown",
+      "transformation"
+    ]
+  },
+  {
+    "bin": 56,
+    "word_types": 43,
+    "representative_words": [
+      "equilateral",
+      "triangles",
+      "ld",
+      "fie",
+      "represents",
+      "nested",
+      "locating",
+      "occupy",
+      "challenge",
+      "composition",
+      "precise",
+      "thousands"
+    ]
+  },
+  {
+    "bin": 57,
+    "word_types": 41,
+    "representative_words": [
+      "black",
+      "fix",
+      "green",
+      "floating",
+      "integer",
+      "magenta",
+      "scalar",
+      "orange",
+      "ude",
+      "magnit",
+      "blue",
+      "transposition"
+    ]
+  },
+  {
+    "bin": 58,
+    "word_types": 34,
+    "representative_words": [
+      "bq",
+      "cq",
+      "aq",
+      "bi",
+      "brf",
+      "cos",
+      "ai",
+      "wa",
+      "vmax",
+      "vd",
+      "ci",
+      "i2"
+    ]
+  },
+  {
+    "bin": 59,
+    "word_types": 22,
+    "representative_words": [
+      "compromises",
+      "necessitates",
+      "decibels",
+      "hod",
+      "lies",
+      "ass",
+      "nepers",
+      "attenuation",
+      "cente",
+      "highp",
+      "denoted",
+      "transformed"
+    ]
+  },
+  {
+    "bin": 60,
+    "word_types": 38,
+    "representative_words": [
+      "collection",
+      "pdk",
+      "style",
+      "explanatory",
+      "calcul",
+      "self",
+      "mostly",
+      "tkconstelltion",
+      "ically",
+      "fcarrier",
+      "2tone",
+      "v2"
+    ]
+  },
+  {
+    "bin": 61,
+    "word_types": 10,
+    "representative_words": [
+      "tive",
+      "far",
+      "phi",
+      "cut",
+      "visualization",
+      "radiation",
+      "pattern",
+      "post",
+      "field",
+      "fields"
+    ]
+  },
+  {
+    "bin": 62,
+    "word_types": 52,
+    "representative_words": [
+      "disturb",
+      "identify",
+      "dumped",
+      "unless",
+      "delivered",
+      "tors",
+      "reversed",
+      "flip",
+      "5ua",
+      "envoutselect",
+      "continue",
+      "moment"
+    ]
+  },
+  {
+    "bin": 63,
+    "word_types": 24,
+    "representative_words": [
+      "timedsink",
+      "rrc",
+      "demodulator",
+      "root",
+      "constellation",
+      "arrows",
+      "tkconstellation",
+      "raised",
+      "addndensity",
+      "cosine",
+      "awgn",
+      "filte"
+    ]
+  },
+  {
+    "bin": 64,
+    "word_types": 22,
+    "representative_words": [
+      "supply",
+      "600ua",
+      "vcc",
+      "ib",
+      "icc",
+      "tages",
+      "1v",
+      "3v",
+      "redundant",
+      "readout",
+      "vds",
+      "numbered"
+    ]
+  },
+  {
+    "bin": 65,
+    "word_types": 35,
+    "representative_words": [
+      "bitspersymbol",
+      "sym",
+      "comment",
+      "eb_dbm",
+      "log10",
+      "channel_power_dbm",
+      "power_dbm",
+      "editable",
+      "eb",
+      "assumes",
+      "previously",
+      "symrate"
+    ]
+  },
+  {
+    "bin": 66,
+    "word_types": 2,
+    "representative_words": [
+      "controller",
+      "df"
+    ]
+  },
+  {
+    "bin": 67,
+    "word_types": 1,
+    "representative_words": [
+      "have"
+    ]
+  },
+  {
+    "bin": 68,
+    "word_types": 26,
+    "representative_words": [
+      "evenly",
+      "entering",
+      "presents",
+      "split",
+      "opposite",
+      "perfectly",
+      "reciprocal",
+      "lossless",
+      "hing",
+      "matc",
+      "couples",
+      "spurious"
+    ]
+  },
+  {
+    "bin": 69,
+    "word_types": 26,
+    "representative_words": [
+      "ourselves",
+      "pause",
+      "fly",
+      "soon",
+      "specifica",
+      "et",
+      "activate",
+      "involving",
+      "7th",
+      "intermodulation",
+      "gradient",
+      "switched"
+    ]
+  },
+  {
+    "bin": 70,
+    "word_types": 34,
+    "representative_words": [
+      "connects",
+      "undisturbed",
+      "guiding",
+      "arrangement",
+      "leaves",
+      "supported",
+      "downwards",
+      "embed",
+      "15mm",
+      "20mm",
+      "quired",
+      "adjust"
+    ]
+  },
+  {
+    "bin": 71,
+    "word_types": 2,
+    "representative_words": [
+      "or",
+      "better"
+    ]
+  },
+  {
+    "bin": 72,
+    "word_types": 24,
+    "representative_words": [
+      "harder",
+      "drives",
+      "shifting",
+      "eds",
+      "50ua",
+      "practice",
+      "paramsweep",
+      "vce",
+      "0v",
+      "ibb",
+      "course",
+      "350ua"
+    ]
+  },
+  {
+    "bin": 73,
+    "word_types": 21,
+    "representative_words": [
+      "realize",
+      "highpass",
+      "dividual",
+      "abo",
+      "ve",
+      "dispersive",
+      "normalized",
+      "topologies",
+      "choice",
+      "yields",
+      "topology",
+      "broadband"
+    ]
+  },
+  {
+    "bin": 74,
+    "word_types": 32,
+    "representative_words": [
+      "tx_rf_spec",
+      "identifier",
+      "yrange",
+      "demod_input",
+      "pep_watts",
+      "delaycalc",
+      "hair",
+      "txref",
+      "crosscorr",
+      "label",
+      "tkplot",
+      "axis"
+    ]
+  },
+  {
+    "bin": 75,
+    "word_types": 32,
+    "representative_words": [
+      "natively",
+      "uk",
+      "explained",
+      "concept",
+      "combine",
+      "basics",
+      "environment",
+      "licenses",
+      "rfic",
+      "started",
+      "getting",
+      "chain"
+    ]
+  },
+  {
+    "bin": 76,
+    "word_types": 43,
+    "representative_words": [
+      "determines",
+      "criterium",
+      "consecutive",
+      "passes",
+      "nbpoints",
+      "strips",
+      "passed",
+      "unknowns",
+      "delta",
+      "pe",
+      "round",
+      "rformed"
+    ]
+  },
+  {
+    "bin": 77,
+    "word_types": 37,
+    "representative_words": [
+      "appropri",
+      "mixer2",
+      "nations",
+      "multilayer",
+      "sp",
+      "termi",
+      "stabmes",
+      "filer",
+      "mlin",
+      "mcfil",
+      "stat",
+      "gummel"
+    ]
+  },
+  {
+    "bin": 78,
+    "word_types": 21,
+    "representative_words": [
+      "earlie",
+      "6mm",
+      "formulas",
+      "strate",
+      "stack",
+      "lier",
+      "substrates",
+      "stackup",
+      "bond",
+      "ear",
+      "dielectric",
+      "ror"
+    ]
+  },
+  {
+    "bin": 79,
+    "word_types": 24,
+    "representative_words": [
+      "discussions",
+      "observations",
+      "tabulated",
+      "observed",
+      "agreement",
+      "conclusion",
+      "alongside",
+      "illustrations",
+      "lifier",
+      "compare",
+      "embedded",
+      "hown"
+    ]
+  },
+  {
+    "bin": 80,
+    "word_types": 9,
+    "representative_words": [
+      "derived",
+      "rates",
+      "multiples",
+      "sample",
+      "sampling",
+      "multiplying",
+      "trial",
+      "th",
+      "each"
+    ]
+  },
+  {
+    "bin": 81,
+    "word_types": 66,
+    "representative_words": [
+      "korea",
+      "kong",
+      "japan",
+      "china",
+      "israel",
+      "italy",
+      "malaysia",
+      "germany",
+      "france",
+      "australia",
+      "hong",
+      "ireland"
+    ]
+  },
+  {
+    "bin": 82,
+    "word_types": 36,
+    "representative_words": [
+      "grm36",
+      "coilcraft",
+      "dale",
+      "crcw",
+      "erie",
+      "grm39",
+      "lie",
+      "blkl1",
+      "blkl2",
+      "incorporating",
+      "natural",
+      "zoomed"
+    ]
+  },
+  {
+    "bin": 83,
+    "word_types": 67,
+    "representative_words": [
+      "step5_pa",
+      "with_optimizedmatch",
+      "auto",
+      "gui",
+      "step5_pa_with_optimizedmatch",
+      "zs",
+      "step5_pa_with_match_v1",
+      "susbtrate",
+      "step5_pa_with_optimized",
+      "tabs",
+      "info",
+      "match_2tone"
+    ]
+  },
+  {
+    "bin": 84,
+    "word_types": 20,
+    "representative_words": [
+      "waves",
+      "excited",
+      "regions",
+      "smaller",
+      "ird",
+      "resources",
+      "coarse",
+      "computing",
+      "hand",
+      "boundary",
+      "divided",
+      "depends"
+    ]
+  },
+  {
+    "bin": 85,
+    "word_types": 16,
+    "representative_words": [
+      "simfromlayout",
+      "biasnet",
+      "mixcompr",
+      "dsn",
+      "biaspoint",
+      "synchronization",
+      "dc_curves",
+      "rfifmatch1",
+      "mixerlayout",
+      "contains",
+      "measuring",
+      "lodrive"
+    ]
+  },
+  {
+    "bin": 86,
+    "word_types": 20,
+    "representative_words": [
+      "50ohm",
+      "symbolinterval",
+      "approx",
+      "vertical",
+      "excessbw",
+      "35ohm",
+      "lateral",
+      "vi",
+      "interval",
+      "interpolation",
+      "decimation",
+      "iii"
+    ]
+  },
+  {
+    "bin": 87,
+    "word_types": 54,
+    "representative_words": [
+      "thought",
+      "lay",
+      "failed",
+      "avoided",
+      "ment",
+      "prop",
+      "entirely",
+      "corrections",
+      "aff",
+      "gned",
+      "overlooked",
+      "foll"
+    ]
+  },
+  {
+    "bin": 88,
+    "word_types": 6,
+    "representative_words": [
+      "guarantee",
+      "uncon",
+      "ditional",
+      "sufficient",
+      "conditions",
+      "necessary"
+    ]
+  },
+  {
+    "bin": 89,
+    "word_types": 22,
+    "representative_words": [
+      "areas",
+      "examined",
+      "choices",
+      "developing",
+      "utility",
+      "finalized",
+      "quadrants",
+      "characterize",
+      "smart",
+      "developed",
+      "circles",
+      "chart"
+    ]
+  },
+  {
+    "bin": 90,
+    "word_types": 22,
+    "representative_words": [
+      "gent",
+      "7x10",
+      "1e7",
+      "oz",
+      "conductivity",
+      "tangent",
+      "tand",
+      "metal",
+      "8e7",
+      "cu",
+      "miller",
+      "height"
+    ]
+  },
+  {
+    "bin": 91,
+    "word_types": 47,
+    "representative_words": [
+      "employs",
+      "finiteelement",
+      "powerful",
+      "moments",
+      "solves",
+      "divides",
+      "divid",
+      "algo",
+      "arbitrarily",
+      "modification",
+      "geometric",
+      "utilize"
+    ]
+  },
+  {
+    "bin": 92,
+    "word_types": 28,
+    "representative_words": [
+      "p9",
+      "p8",
+      "strongly",
+      "p7",
+      "p6",
+      "attach",
+      "p5",
+      "advised",
+      "vin",
+      "vdc",
+      "p4",
+      "p3"
+    ]
+  },
+  {
+    "bin": 93,
+    "word_types": 59,
+    "representative_words": [
+      "lab5b_rfsystemdesign_phasenoise",
+      "step2_small_signal_stability",
+      "lab19_rf_dsp",
+      "lab5_patchantenna_wrk",
+      "lab18_qpsk_systemdesign",
+      "lab2_hbsimulation_wrk",
+      "step5_pa_with_op",
+      "lab5_rf_system_design_wrk",
+      "qpsk_modulator",
+      "timizedmatch",
+      "qpsk_mod",
+      "lab5d"
+    ]
+  },
+  {
+    "bin": 94,
+    "word_types": 61,
+    "representative_words": [
+      "soco",
+      "registered",
+      "edasupportweb",
+      "americas",
+      "contactus",
+      "mykeysight",
+      "canada",
+      "partners",
+      "bp",
+      "channelpartners",
+      "0707en",
+      "http"
+    ]
+  },
+  {
+    "bin": 95,
+    "word_types": 61,
+    "representative_words": [
+      "mula",
+      "madurai",
+      "college",
+      "tries",
+      "intends",
+      "thiagarajar",
+      "collect",
+      "arena",
+      "engineering",
+      "june2003",
+      "p156",
+      "comprehensive"
+    ]
+  },
+  {
+    "bin": 96,
+    "word_types": 23,
+    "representative_words": [
+      "idss",
+      "m3",
+      "m1",
+      "load_line",
+      "dia",
+      "pa_op_power",
+      "indep",
+      "m2",
+      "slope",
+      "pnmx",
+      "waterfall",
+      "attributes"
+    ]
+  },
+  {
+    "bin": 97,
+    "word_types": 22,
+    "representative_words": [
+      "angle",
+      "conduction",
+      "conduc",
+      "reverse",
+      "drain",
+      "third",
+      "theoretical",
+      "across",
+      "peak",
+      "sinusoidal",
+      "approximated",
+      "biasing"
+    ]
+  },
+  {
+    "bin": 98,
+    "word_types": 1,
+    "representative_words": [
+      "perform"
+    ]
+  },
+  {
+    "bin": 99,
+    "word_types": 58,
+    "representative_words": [
+      "l3z0",
+      "0c2",
+      "l1z0",
+      "50ohms",
+      "inductances",
+      "lk",
+      "c0",
+      "substituting",
+      "rs",
+      "fractional",
+      "l3",
+      "10log10"
+    ]
+  },
+  {
+    "bin": 100,
+    "word_types": 65,
+    "representative_words": [
+      "33db",
+      "thinking",
+      "dissipation",
+      "super",
+      "heterodyne",
+      "conclude",
+      "intuitively",
+      "amplified",
+      "leaking",
+      "maintain",
+      "interfering",
+      "translat"
+    ]
+  },
+  {
+    "bin": 101,
+    "word_types": 44,
+    "representative_words": [
+      "restores",
+      "gone",
+      "convgain",
+      "fication",
+      "fraction",
+      "squarewave",
+      "margin",
+      "wers",
+      "risen",
+      "defaul",
+      "45mhz",
+      "watts"
+    ]
+  },
+  {
+    "bin": 102,
+    "word_types": 33,
+    "representative_words": [
+      "attracting",
+      "equilibrium",
+      "mem",
+      "mov",
+      "threshold",
+      "movement",
+      "reached",
+      "metallic",
+      "electrostatic",
+      "suspended",
+      "electrodes",
+      "coscos1log10"
+    ]
+  },
+  {
+    "bin": 103,
+    "word_types": 27,
+    "representative_words": [
+      "sustain",
+      "traditionally",
+      "iin",
+      "widely",
+      "renamed",
+      "iout",
+      "accepted",
+      "pwrout",
+      "subset",
+      "bearing",
+      "drops",
+      "lossy"
+    ]
+  },
+  {
+    "bin": 104,
+    "word_types": 48,
+    "representative_words": [
+      "camargo",
+      "edmar",
+      "digest",
+      "rauscher",
+      "september",
+      "siam",
+      "doublers",
+      "anthony",
+      "rhode",
+      "mtt",
+      "soares",
+      "goloubkoff"
+    ]
+  },
+  {
+    "bin": 105,
+    "word_types": 47,
+    "representative_words": [
+      "brings",
+      "33pf",
+      "910nh",
+      "20o",
+      "b2",
+      "casc",
+      "10o",
+      "nearly",
+      "resonates",
+      "aded",
+      "resonance",
+      "decade"
+    ]
+  },
+  {
+    "bin": 106,
+    "word_types": 41,
+    "representative_words": [
+      "dow",
+      "win",
+      "transferred",
+      "hem",
+      "ndow",
+      "rectangles",
+      "updat",
+      "wi",
+      "ard",
+      "2d",
+      "updated",
+      "parameterize"
+    ]
+  },
+  {
+    "bin": 107,
+    "word_types": 49,
+    "representative_words": [
+      "niques",
+      "whole",
+      "realized",
+      "addressed",
+      "nse",
+      "know",
+      "compares",
+      "octave",
+      "sho",
+      "recover",
+      "works",
+      "reliability"
+    ]
+  },
+  {
+    "bin": 108,
+    "word_types": 22,
+    "representative_words": [
+      "0db",
+      "s13",
+      "s33",
+      "resp",
+      "s22",
+      "s21s12",
+      "mber",
+      "onse",
+      "s11",
+      "leaving",
+      "dbpolar",
+      "unperturbed"
+    ]
+  },
+  {
+    "bin": 109,
+    "word_types": 24,
+    "representative_words": [
+      "figures",
+      "convgain_rl5kohm",
+      "gure",
+      "sired",
+      "lodrive15",
+      "fi",
+      "tripler",
+      "nal",
+      "completing",
+      "unmatched",
+      "savings",
+      "flatness"
+    ]
+  },
+  {
+    "bin": 110,
+    "word_types": 5,
+    "representative_words": [
+      "pass",
+      "bandpass",
+      "filter",
+      "band",
+      "filters"
+    ]
+  },
+  {
+    "bin": 111,
+    "word_types": 51,
+    "representative_words": [
+      "tery",
+      "science",
+      "life",
+      "stations",
+      "lation",
+      "gmres",
+      "mail",
+      "determinin",
+      "subspace",
+      "handheld",
+      "cellular",
+      "inp"
+    ]
+  },
+  {
+    "bin": 112,
+    "word_types": 34,
+    "representative_words": [
+      "issipated",
+      "transmit",
+      "division",
+      "circumvent",
+      "consumers",
+      "7v",
+      "examination",
+      "held",
+      "vref",
+      "prime",
+      "dividers",
+      "combining"
+    ]
+  },
+  {
+    "bin": 113,
+    "word_types": 5,
+    "representative_words": [
+      "mic",
+      "hybrid",
+      "integrated",
+      "feed",
+      "feedback"
+    ]
+  },
+  {
+    "bin": 114,
+    "word_types": 1,
+    "representative_words": [
+      "c"
+    ]
+  },
+  {
+    "bin": 115,
+    "word_types": 6,
+    "representative_words": [
+      "above",
+      "table",
+      "mentioned",
+      "procedure",
+      "equations",
+      "following"
+    ]
+  },
+  {
+    "bin": 116,
+    "word_types": 40,
+    "representative_words": [
+      "merge",
+      "refines",
+      "ca",
+      "mesher",
+      "objects",
+      "face",
+      "refined",
+      "divergence",
+      "automatic",
+      "lot",
+      "fre",
+      "ignored"
+    ]
+  },
+  {
+    "bin": 117,
+    "word_types": 2,
+    "representative_words": [
+      "measurement",
+      "equation"
+    ]
+  },
+  {
+    "bin": 118,
+    "word_types": 54,
+    "representative_words": [
+      "helpful",
+      "instance",
+      "ublers",
+      "ogies",
+      "outlines",
+      "tweaki",
+      "intricacies",
+      "topol",
+      "swap",
+      "efforts",
+      "significan",
+      "ical"
+    ]
+  },
+  {
+    "bin": 119,
+    "word_types": 35,
+    "representative_words": [
+      "compliant",
+      "70dbc",
+      "ko",
+      "5db",
+      "equalizers",
+      "say",
+      "allowed",
+      "locked",
+      "ulation",
+      "hift",
+      "dbc",
+      "frequen"
+    ]
+  },
+  {
+    "bin": 120,
+    "word_types": 33,
+    "representative_words": [
+      "gn",
+      "utmost",
+      "rollett",
+      "desi",
+      "hemt",
+      "importance",
+      "cfy67",
+      "cycle",
+      "un",
+      "downsample",
+      "upsampling",
+      "feedbac"
+    ]
+  },
+  {
+    "bin": 121,
+    "word_types": 50,
+    "representative_words": [
+      "15um",
+      "25mil",
+      "micron",
+      "accept",
+      "strip",
+      "silicon",
+      "d6002",
+      "graphic",
+      "mapped",
+      "rt",
+      "rogers",
+      "fr4"
+    ]
+  },
+  {
+    "bin": 122,
+    "word_types": 13,
+    "representative_words": [
+      "bypass",
+      "replaced",
+      "footprint",
+      "combination",
+      "transitions",
+      "support",
+      "ohm",
+      "via",
+      "paths",
+      "resistor",
+      "connected",
+      "purposes"
+    ]
+  },
+  {
+    "bin": 123,
+    "word_types": 16,
+    "representative_words": [
+      "port1",
+      "defin",
+      "calibrated",
+      "attached",
+      "directions",
+      "ed",
+      "optimizations",
+      "uncheck",
+      "reflect",
+      "locus",
+      "affect",
+      "ports"
+    ]
+  },
+  {
+    "bin": 124,
+    "word_types": 12,
+    "representative_words": [
+      "mechanisms",
+      "actuation",
+      "shapes",
+      "configuration",
+      "ircular",
+      "elliptical",
+      "normally",
+      "square",
+      "common",
+      "preferred",
+      "optimum",
+      "other"
+    ]
+  },
+  {
+    "bin": 125,
+    "word_types": 38,
+    "representative_words": [
+      "treats",
+      "portion",
+      "imaginary",
+      "thorough",
+      "valued",
+      "bbbw",
+      "frequencydomain",
+      "envbw",
+      "transient",
+      "statist",
+      "consist",
+      "treatment"
+    ]
+  },
+  {
+    "bin": 126,
+    "word_types": 4,
+    "representative_words": [
+      "port2",
+      "mistake",
+      "done",
+      "once"
+    ]
+  },
+  {
+    "bin": 127,
+    "word_types": 58,
+    "representative_words": [
+      "distinctions",
+      "cards",
+      "bsim",
+      "cubic",
+      "card",
+      "representatives",
+      "satellites",
+      "aflow",
+      "ronments",
+      "kinds",
+      "terrestrial",
+      "translate"
+    ]
+  }
+]

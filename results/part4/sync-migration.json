@@ -1,0 +1,31 @@
+{
+  "imported": [
+    {
+      "filename": "Ads cookbook .pdf",
+      "chunks": 771
+    },
+    {
+      "filename": "ADS_excerpt_page_5.pdf",
+      "chunks": 4
+    },
+    {
+      "filename": "ADS_excerpt_page_7.pdf",
+      "chunks": 7
+    },
+    {
+      "filename": "ADS_excerpt.txt",
+      "chunks": 1
+    },
+    {
+      "filename": "ADS_excerpt.html",
+      "chunks": 1
+    }
+  ],
+  "counts": {
+    "kb_documents": 5,
+    "kb_chunks": 784
+  },
+  "vectors": 784,
+  "dimension": 1536,
+  "embedding_requests": 0
+}

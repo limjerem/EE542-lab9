@@ -1,0 +1,185 @@
+{
+  "timestamp_utc": "2026-11-01T04:45:56.393948+00:00",
+  "model": "lab9-llama",
+  "status": "passed",
+  "checks": [
+    {
+      "name": "website loads",
+      "passed": true
+    },
+    {
+      "name": "CSS loads",
+      "passed": true
+    },
+    {
+      "name": "JavaScript loads",
+      "passed": true
+    },
+    {
+      "name": "message history requires login",
+      "passed": true
+    },
+    {
+      "name": "posting requires login",
+      "passed": true
+    },
+    {
+      "name": "invalid token rejected",
+      "passed": true
+    },
+    {
+      "name": "invalid credentials rejected",
+      "passed": true
+    },
+    {
+      "name": "invalid credentials rejected",
+      "passed": true
+    },
+    {
+      "name": "invalid credentials rejected",
+      "passed": true
+    },
+    {
+      "name": "signup alice",
+      "passed": true
+    },
+    {
+      "name": "signup bob",
+      "passed": true
+    },
+    {
+      "name": "duplicate username rejected",
+      "passed": true
+    },
+    {
+      "name": "wrong password rejected",
+      "passed": true
+    },
+    {
+      "name": "login succeeds",
+      "passed": true
+    },
+    {
+      "name": "empty message rejected",
+      "passed": true
+    },
+    {
+      "name": "oversize message rejected",
+      "passed": true
+    },
+    {
+      "name": "unauthenticated websocket rejected",
+      "passed": true
+    },
+    {
+      "name": "authenticated websocket ready",
+      "passed": true
+    },
+    {
+      "name": "authenticated websocket ready",
+      "passed": true
+    },
+    {
+      "name": "ordinary message accepted",
+      "passed": true
+    },
+    {
+      "name": "websocket message event",
+      "passed": true
+    },
+    {
+      "name": "websocket message event",
+      "passed": true
+    },
+    {
+      "name": "two users receive same broadcast",
+      "passed": true
+    },
+    {
+      "name": "websocket message event",
+      "passed": true
+    },
+    {
+      "name": "websocket message event",
+      "passed": true
+    },
+    {
+      "name": "question broadcast to both users",
+      "passed": true
+    },
+    {
+      "name": "websocket message event",
+      "passed": true
+    },
+    {
+      "name": "websocket message event",
+      "passed": true
+    },
+    {
+      "name": "LLM request succeeds",
+      "passed": true
+    },
+    {
+      "name": "real Llama reply reaches both users",
+      "passed": true
+    },
+    {
+      "name": "document reply cites retrieved passages",
+      "passed": true
+    },
+    {
+      "name": "websocket message event",
+      "passed": true
+    },
+    {
+      "name": "websocket message event",
+      "passed": true
+    },
+    {
+      "name": "question broadcast to both users",
+      "passed": true
+    },
+    {
+      "name": "websocket message event",
+      "passed": true
+    },
+    {
+      "name": "websocket message event",
+      "passed": true
+    },
+    {
+      "name": "LLM request succeeds",
+      "passed": true
+    },
+    {
+      "name": "real Llama reply reaches both users",
+      "passed": true
+    },
+    {
+      "name": "history preserves normal message",
+      "passed": true
+    },
+    {
+      "name": "history preserves both bot replies",
+      "passed": true
+    },
+    {
+      "name": "password stored as bcrypt hash",
+      "passed": true
+    },
+    {
+      "name": "message committed to MySQL",
+      "passed": true
+    }
+  ],
+  "answers": [
+    {
+      "question": "What is tuning used for in ADS?",
+      "answer": "According to [1], [2], and [3], Tuning is a way to change the component values and see the impact on circuit performance."
+    },
+    {
+      "question": "How do I bake a chocolate cake?",
+      "answer": "The provided passages do not provide enough information to answer your question."
+    }
+  ]
+}

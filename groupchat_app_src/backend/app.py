@@ -1,6 +1,7 @@
 import asyncio
 import json
 import os
+import logging
 from contextlib import asynccontextmanager
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -14,7 +15,7 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from jose import JWTError, jwt
 from pydantic import BaseModel, Field, field_validator
-from sqlalchemy import Boolean, DateTime, ForeignKey, Integer, String, Text, func, select
+from sqlalchemy import Boolean, DateTime, ForeignKey, Integer, String, Text, JSON, and_, or_, func, select
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
@@ -22,6 +23,8 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 # Load groupchat_app_src/.env, one directory above backend/
 PROJECT_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(PROJECT_DIR / ".env")
+load_dotenv(PROJECT_DIR.parent / 'embedding' / '.env')
+from rag_service import RagService, RagReply
 
 DATABASE_URL = os.getenv(
     "DATABASE_URL",
@@ -83,6 +86,15 @@ class Credentials(BaseModel):
         if len(value.encode("utf-8")) > 72:
             raise ValueError("Password must fit within 72 UTF-8 bytes")
         return value
+
+
+class MessageEvidence(Base):
+    __tablename__ = 'message_evidence'
+    message_id: Mapped[int] = mapped_column(ForeignKey('messages.id', ondelete='CASCADE'), primary_key=True)
+    request_id: Mapped[int] = mapped_column(ForeignKey('messages.id', ondelete='CASCADE'), index=True)
+    sources: Mapped[list] = mapped_column(JSON)
+    query: Mapped[str] = mapped_column(Text)
+    status: Mapped[str] = mapped_column(String(24))
 
 
 class NewMessage(BaseModel):
@@ -156,9 +168,14 @@ class ConnectionManager:
 
 
 manager = ConnectionManager()
+rag = RagService(LLM_API_BASE, LLM_MODEL, LLM_API_KEY)
+bot_queue = asyncio.Queue()
+pending_replies = set()
+message_order = asyncio.Lock()
+logger = logging.getLogger(__name__)
 
 
-def message_json(message: Message, username: str) -> dict:
+def message_json(message: Message, username: str, evidence=None) -> dict:
     created_at = message.created_at
     if created_at and created_at.tzinfo is None:
         created_at = created_at.replace(tzinfo=timezone.utc)
@@ -168,53 +185,62 @@ def message_json(message: Message, username: str) -> dict:
         "content": message.content,
         "is_bot": message.is_bot,
         "created_at": created_at.isoformat() if created_at else None,
+        "sources": evidence.sources if evidence else [],
+        "reply_to": evidence.request_id if evidence else None,
+        "status": evidence.status if evidence else None,
     }
 
 
 async def save_message(
-    content: str, user_id: Optional[int], is_bot: bool, username: str
+    content: str, user_id: Optional[int], is_bot: bool, username: str,
+    reply=None, reply_to=None,
 ) -> dict:
     async with SessionLocal() as session:
         message = Message(content=content, user_id=user_id, is_bot=is_bot)
         session.add(message)
+        await session.flush()
+        evidence = None
+        if reply is not None:
+            evidence = MessageEvidence(message_id=message.id, request_id=reply_to,
+                                       sources=reply.sources, query=reply.query, status=reply.status)
+            session.add(evidence)
         await session.commit()
         await session.refresh(message)
-        return message_json(message, username)
+        return message_json(message, username, evidence)
 
 
-async def ask_llm(question: str) -> str:
-    headers = {}
-    if LLM_API_KEY:
-        headers["Authorization"] = f"Bearer {LLM_API_KEY}"
+async def recent_history(request_id):
+    async with SessionLocal() as session:
+        rows = (await session.execute(select(Message, MessageEvidence)
+            .outerjoin(MessageEvidence, MessageEvidence.message_id == Message.id)
+            .where(or_(Message.id < request_id,
+                       and_(Message.is_bot.is_(True), MessageEvidence.request_id < request_id)))
+            .order_by(Message.id.desc()).limit(8))).all()
+    return [dict(role='assistant' if message.is_bot else 'user', content=message.content)
+            for message, evidence in reversed(rows)
+            if evidence is None or evidence.status != 'error']
 
-    body = {
-        "model": LLM_MODEL,
-        "messages": [
-            {
-                "role": "system",
-                "content": "You are a helpful assistant in a group chat. Give concise, useful answers.",
-            },
-            {"role": "user", "content": question},
-        ],
-        "temperature": 0.7,
-        "max_tokens": 512,
-    }
 
-    try:
-        async with httpx.AsyncClient(timeout=120) as client:
-            response = await client.post(
-                f"{LLM_API_BASE}/chat/completions",
-                headers=headers,
-                json=body,
-            )
-            response.raise_for_status()
-            data = response.json()
-            answer = data["choices"][0]["message"]["content"]
-            if not isinstance(answer, str) or not answer.strip():
-                raise ValueError("The LLM server returned an empty answer")
-            return answer.strip()
-    except (httpx.HTTPError, KeyError, IndexError, TypeError, ValueError) as exc:
-        return f"Sorry, I could not reach the LLM server. Check its address and status. ({exc})"
+async def bot_worker():
+    while True:
+        request_id, question = await bot_queue.get()
+        try:
+            await manager.broadcast(dict(type='bot_status', request_id=request_id, status='thinking'))
+            try:
+                reply = await rag.answer(question, await recent_history(request_id))
+            except Exception as error:
+                logger.warning('RAG request %s failed: %s', request_id, type(error).__name__)
+                reply = RagReply('I could not complete the document lookup or contact the answer service. '
+                                 'Please try the question again.', [], question, 'error')
+            saved = await save_message(reply.answer, None, True, 'Bot', reply, request_id)
+            pending_replies.discard(request_id)
+            await manager.broadcast(dict(type='message', message=saved))
+        except Exception as error:
+            logger.warning('Could not save reply %s: %s', request_id, type(error).__name__)
+            await manager.broadcast(dict(type='bot_status', request_id=request_id, status='error'))
+        finally:
+            pending_replies.discard(request_id)
+            bot_queue.task_done()
 
 
 @asynccontextmanager
@@ -222,11 +248,31 @@ async def lifespan(app: FastAPI):
     # Create tables automatically. You can also run sql/schema.sql first.
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
+    if app.state.documents_api_available:
+        from knowledge_adapter import shared_kb
+        await asyncio.to_thread(shared_kb)
+        await init_documents_db()
+    await asyncio.to_thread(rag.load)
+    worker = asyncio.create_task(bot_worker())
     yield
+    worker.cancel()
+    try:
+        await worker
+    except asyncio.CancelledError:
+        pass
     await engine.dispose()
 
 
 app = FastAPI(title="Group Chat + LLM Bot", lifespan=lifespan)
+app.state.documents_api_available = False
+try:
+    from documents_api import create_documents_router, init_documents_db
+except ModuleNotFoundError as error:
+    if error.name != 'documents_api':
+        raise
+else:
+    app.include_router(create_documents_router(current_user))
+    app.state.documents_api_available = True
 
 FRONTEND_DIR = PROJECT_DIR / "frontend"
 app.mount("/.well-known", StaticFiles(directory=FRONTEND_DIR / ".well-known"), name="well-known")
@@ -245,6 +291,12 @@ async def styles():
 @app.get("/app.js")
 async def javascript():
     return FileResponse(FRONTEND_DIR / "app.js", media_type="application/javascript")
+
+
+@app.get('/api/knowledge')
+async def knowledge(user: User = Depends(current_user)):
+    summary = await asyncio.to_thread(rag.summary)
+    return dict(summary, uploads_available=app.state.documents_api_available)
 
 
 @app.post("/api/signup")
@@ -280,18 +332,19 @@ async def get_messages(
 ):
     rows = (
         await session.execute(
-            select(Message, User.username)
+            select(Message, User.username, MessageEvidence)
             .outerjoin(User, Message.user_id == User.id)
+            .outerjoin(MessageEvidence, MessageEvidence.message_id == Message.id)
             .order_by(Message.id.desc())
             .limit(100)
         )
     ).all()
 
     messages = [
-        message_json(message, "Bot" if message.is_bot else (username or "unknown"))
-        for message, username in reversed(rows)
+        message_json(message, "Bot" if message.is_bot else (username or "unknown"), evidence)
+        for message, username, evidence in reversed(rows)
     ]
-    return {"messages": messages}
+    return {"messages": messages, "pending_replies": sorted(pending_replies)}
 
 
 @app.post("/api/messages")
@@ -303,15 +356,16 @@ async def post_message(
     if not content:
         raise HTTPException(status_code=400, detail="Message cannot be blank")
 
-    saved = await save_message(content, user.id, False, user.username)
-    await manager.broadcast({"type": "message", "message": saved})
-
-    if any(mark in content for mark in ("?", "？")):
-        answer = await ask_llm(content)
-        bot_message = await save_message(answer, None, True, "Bot")
-        await manager.broadcast({"type": "message", "message": bot_message})
-
-    return {"ok": True}
+    trigger = '?' in content or '\uff1f' in content or content.lower().startswith('@bot')
+    async with message_order:
+        saved = await save_message(content, user.id, False, user.username)
+        await manager.broadcast({"type": "message", "message": saved})
+        if trigger:
+            pending_replies.add(saved['id'])
+            question = content[4:].strip() if content.lower().startswith('@bot') else content
+            bot_queue.put_nowait((saved['id'], question))
+            await manager.broadcast(dict(type='bot_status', request_id=saved['id'], status='queued'))
+    return {"ok": True, "message": saved, "bot_pending": trigger}
 
 
 @app.websocket("/ws")
@@ -320,7 +374,7 @@ async def websocket_chat(websocket: WebSocket):
     try:
         # Authenticate before joining broadcasts; keep JWTs out of request URLs/logs.
         auth = await asyncio.wait_for(websocket.receive_json(), timeout=10)
-        if not isinstance(auth, dict) or auth.get("type") != "authenticate":
+        if not isinstance(auth, dict) or auth.get("type") not in {"auth", "authenticate"}:
             raise HTTPException(status_code=401, detail="Login required")
         token = auth.get("token")
         if not isinstance(token, str) or not token:
@@ -335,7 +389,7 @@ async def websocket_chat(websocket: WebSocket):
 
     await manager.connect(websocket)
     try:
-        await websocket.send_json({"type": "ready"})
+        await websocket.send_json({"type": "connected" if auth["type"] == "auth" else "ready"})
         while True:
             # Messages are posted through REST; this socket receives broadcasts.
             await websocket.receive_text()

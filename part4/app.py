@@ -1,16 +1,22 @@
 """Unified lab website: existing group chat plus the final ADS learning application."""
 import asyncio
+import sys
 from contextlib import asynccontextmanager
 from pathlib import Path
 from uuid import UUID
 from fastapi import APIRouter,Depends,HTTPException
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel,Field,field_validator
+# The shared backend also supports its original `uvicorn app:app` launch.
+# Its sibling imports need the backend directory when composed from the repo root.
+ROOT=Path(__file__).resolve().parents[1]
+BACKEND=ROOT/'groupchat_app_src/backend'
+if str(BACKEND) not in sys.path:
+    sys.path.insert(0,str(BACKEND))
 from groupchat_app_src.backend.app import app,current_user,User
 from lab9_core.errors import user_error
 from part4.service import open_service
 
-ROOT=Path(__file__).resolve().parents[1]
 _service=None
 original_lifespan=app.router.lifespan_context
 

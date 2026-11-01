@@ -242,5 +242,5 @@ def get_kb() -> KnowledgeBase:
     with _kb_lock:
         if _kb is None:
             default = Path(__file__).resolve().parent.parent / "kb_store"
-            _kb = KnowledgeBase(os.getenv("KB_DIR", default), openai_compatible_embedder())
+            _kb = KnowledgeBase(os.getenv("KB_DIR") or default, openai_compatible_embedder())
         return _kb

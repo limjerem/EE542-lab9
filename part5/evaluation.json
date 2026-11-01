@@ -1,0 +1,290 @@
+{
+  "description": "Codex-assisted authored retrieval questions, frozen before the first Part 5 experiment. Development questions select K and hybrid weight; test questions are not used for fitting or selection. This is a small course-specific diagnostic, not an independent benchmark.",
+  "relevance": "Page-level relevance, manually assigned from the saved course chunks. The evidence anchor checks source availability; other relevant pages may not be exhaustively labeled.",
+  "queries": [
+    {
+      "id": "D01",
+      "split": "dev",
+      "question": "What is tuning used for in ADS?",
+      "relevant_pages": [
+        5
+      ],
+      "evidence_anchor": "What is Tuning?"
+    },
+    {
+      "id": "D02",
+      "split": "dev",
+      "question": "In which domain does harmonic balance analyze nonlinear circuits?",
+      "relevant_pages": [
+        11
+      ],
+      "evidence_anchor": "frequency-domain"
+    },
+    {
+      "id": "D03",
+      "split": "dev",
+      "question": "Where can I compute the antenna far field radiation pattern?",
+      "relevant_pages": [
+        20
+      ],
+      "evidence_anchor": "Far Field"
+    },
+    {
+      "id": "D04",
+      "split": "dev",
+      "question": "What restriction on component ports applies to RF budget analysis?",
+      "relevant_pages": [
+        31
+      ],
+      "evidence_anchor": "2-port components"
+    },
+    {
+      "id": "D05",
+      "split": "dev",
+      "question": "What output phase difference does a branch line coupler produce?",
+      "relevant_pages": [
+        42
+      ],
+      "evidence_anchor": "90"
+    },
+    {
+      "id": "D06",
+      "split": "dev",
+      "question": "Which power divider improves output isolation over a T junction?",
+      "relevant_pages": [
+        47
+      ],
+      "evidence_anchor": "better isolation"
+    },
+    {
+      "id": "D07",
+      "split": "dev",
+      "question": "What stability factor conditions guarantee an unconditionally stable amplifier?",
+      "relevant_pages": [
+        53
+      ],
+      "evidence_anchor": "K >1"
+    },
+    {
+      "id": "D08",
+      "split": "dev",
+      "question": "Why can Monte Carlo yield estimation require many circuit simulations?",
+      "relevant_pages": [
+        60
+      ],
+      "evidence_anchor": "full network simulation"
+    },
+    {
+      "id": "D09",
+      "split": "dev",
+      "question": "How is the membrane in an RF MEMS switch actuated?",
+      "relevant_pages": [
+        100
+      ],
+      "evidence_anchor": "thin membrane"
+    },
+    {
+      "id": "D10",
+      "split": "dev",
+      "question": "What excess bandwidth is configured for the root raised cosine filters?",
+      "relevant_pages": [
+        112
+      ],
+      "evidence_anchor": "ExcessBW"
+    },
+    {
+      "id": "D11",
+      "split": "dev",
+      "question": "How many samples are used for the BER Monte Carlo simulation?",
+      "relevant_pages": [
+        116
+      ],
+      "evidence_anchor": "3e6"
+    },
+    {
+      "id": "D12",
+      "split": "dev",
+      "question": "How is the deembedded transmission line result independently verified?",
+      "relevant_pages": [
+        122
+      ],
+      "evidence_anchor": "5 mm line"
+    },
+    {
+      "id": "T01",
+      "split": "test",
+      "question": "Are spaces allowed in the workspace name or path?",
+      "relevant_pages": [
+        3
+      ],
+      "evidence_anchor": "spaces"
+    },
+    {
+      "id": "T02",
+      "split": "test",
+      "question": "How do I apply tuned values back to the schematic?",
+      "relevant_pages": [
+        7
+      ],
+      "evidence_anchor": "Update Schematic"
+    },
+    {
+      "id": "T03",
+      "split": "test",
+      "question": "What S11 limit and frequency range are used in the optimization goal example?",
+      "relevant_pages": [
+        8
+      ],
+      "evidence_anchor": "-20"
+    },
+    {
+      "id": "T04",
+      "split": "test",
+      "question": "Which optimization algorithm and maximum iteration count are configured?",
+      "relevant_pages": [
+        9
+      ],
+      "evidence_anchor": "2000"
+    },
+    {
+      "id": "T05",
+      "split": "test",
+      "question": "Which circuit analysis handles large signal nonlinear distortion and mixing?",
+      "relevant_pages": [
+        11
+      ],
+      "evidence_anchor": "nonlinear"
+    },
+    {
+      "id": "T06",
+      "split": "test",
+      "question": "Do electromagnetic simulators operate on circuit schematics or layout?",
+      "relevant_pages": [
+        14
+      ],
+      "evidence_anchor": "layout"
+    },
+    {
+      "id": "T07",
+      "split": "test",
+      "question": "How does finite element mesh size trade accuracy against computing resources?",
+      "relevant_pages": [
+        23
+      ],
+      "evidence_anchor": "trade-off"
+    },
+    {
+      "id": "T08",
+      "split": "test",
+      "question": "Which library contains the models for building an RF system architecture?",
+      "relevant_pages": [
+        28
+      ],
+      "evidence_anchor": "Analog/RF"
+    },
+    {
+      "id": "T09",
+      "split": "test",
+      "question": "What is the cutoff frequency separating transmission and attenuation bands?",
+      "relevant_pages": [
+        33
+      ],
+      "evidence_anchor": "frequency"
+    },
+    {
+      "id": "T10",
+      "split": "test",
+      "question": "Which port of the ideal branch line coupler is isolated?",
+      "relevant_pages": [
+        42
+      ],
+      "evidence_anchor": "isolated"
+    },
+    {
+      "id": "T11",
+      "split": "test",
+      "question": "What power is dissipated by a Wilkinson power divider?",
+      "relevant_pages": [
+        47
+      ],
+      "evidence_anchor": "reflected power"
+    },
+    {
+      "id": "T12",
+      "split": "test",
+      "question": "What determines the choice of bias network for an amplifier?",
+      "relevant_pages": [
+        54
+      ],
+      "evidence_anchor": "frequency range"
+    },
+    {
+      "id": "T13",
+      "split": "test",
+      "question": "Which transmission line dimension is affected by printed circuit etching tolerance?",
+      "relevant_pages": [
+        59
+      ],
+      "evidence_anchor": "width"
+    },
+    {
+      "id": "T14",
+      "split": "test",
+      "question": "Which amplifier simulation is recommended to measure intermodulation distortion?",
+      "relevant_pages": [
+        96
+      ],
+      "evidence_anchor": "IMD"
+    },
+    {
+      "id": "T15",
+      "split": "test",
+      "question": "What feedback element is used in the voltage controlled oscillator tutorial?",
+      "relevant_pages": [
+        85
+      ],
+      "evidence_anchor": "lumped element filter"
+    },
+    {
+      "id": "T16",
+      "split": "test",
+      "question": "How does ADS Ptolemy combine different models of computation?",
+      "relevant_pages": [
+        106
+      ],
+      "evidence_anchor": "domains"
+    },
+    {
+      "id": "T17",
+      "split": "test",
+      "question": "What channel is placed between the QPSK modulator and demodulator?",
+      "relevant_pages": [
+        114
+      ],
+      "evidence_anchor": "Additive White Gaussian Noise"
+    },
+    {
+      "id": "T18",
+      "split": "test",
+      "question": "When can Fast Cosim accelerate the RF simulation without changing performance?",
+      "relevant_pages": [
+        119
+      ],
+      "evidence_anchor": "Fast Cosim"
+    }
+  ],
+  "controls": [
+    {
+      "id": "C01",
+      "question": "How do I bake a chocolate cake?"
+    },
+    {
+      "id": "C02",
+      "question": "qzxvplmn"
+    },
+    {
+      "id": "C03",
+      "question": "and the of"
+    }
+  ]
+}
