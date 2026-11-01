@@ -7,6 +7,7 @@ import streamlit as st
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from lab9_core.library import FILE_TYPES, SourceFile, open_library
 from lab9_core.conversation import open_chat
+from lab9_core.errors import user_error
 
 st.set_page_config(page_title='ADS Document Assistant',page_icon='📚')
 st.title('ADS Document Assistant')
@@ -20,7 +21,7 @@ def library():
 try:
     collection = library()
 except Exception as error:
-    st.error(f'Could not open the document library ({type(error).__name__}). Check the local configuration.')
+    st.error(f'Could not open the document library ({user_error(error)}). Check the local configuration.')
     st.stop()
 
 with st.sidebar:
@@ -34,7 +35,7 @@ with st.sidebar:
                 st.session_state['messages'] = []
             st.success(f'Processed {len(selection)} file(s): {len(documents)} chunks.')
         except Exception as error:
-            st.error(f'Processing failed ({type(error).__name__}). You can retry the selected files.')
+            st.error(f'Processing failed ({user_error(error)}). You can retry the selected files.')
     if st.button('Load saved index'):
         try:
             if not collection.vectors.load():
@@ -43,7 +44,7 @@ with st.sidebar:
             st.session_state['messages'] = []
             st.success('Saved index loaded.')
         except Exception as error:
-            st.error(f'Could not load the index ({type(error).__name__}).')
+            st.error(f'Could not load the index ({user_error(error)}).')
     if st.button('Clear conversation',disabled='chat' not in st.session_state):
         st.session_state['chat'].clear()
         st.session_state['messages'] = []
@@ -51,9 +52,18 @@ with st.sidebar:
     for filename,count in collection.database.list_sources():
         st.text(f'{filename} ({count} pages)')
 
-for message in st.session_state.get('messages',[]):
+def render_message(message):
     with st.chat_message(message['role']):
         st.markdown(message['text'])
+        if message.get('sources'):
+            with st.expander('Retrieved passages'):
+                for i,passage in enumerate(message['sources'],1):
+                    st.text(f"[{i}] {passage['filename']} | PDF page {passage['page']}")
+                    st.text(passage['text'])
+
+
+for message in st.session_state.get('messages',[]):
+    render_message(message)
 
 question = st.chat_input('Ask about your documents')
 if question:
@@ -63,15 +73,10 @@ if question:
         try:
             with st.spinner('Retrieving passages...'):
                 response = st.session_state['chat'].ask(question)
-            st.session_state.setdefault('messages',[]).extend([
-                dict(role='user',text=question),dict(role='assistant',text=response['answer'])])
-            with st.chat_message('user'):
-                st.markdown(question)
-            with st.chat_message('assistant'):
-                st.markdown(response['answer'])
-                with st.expander('Retrieved passages'):
-                    for i,passage in enumerate(response['sources'],1):
-                        st.text(f"[{i}] {passage['filename']} | PDF page {passage['page']}")
-                        st.text(passage['text'])
+            messages=[dict(role='user',text=question),
+                      dict(role='assistant',text=response['answer'],sources=response['sources'])]
+            st.session_state.setdefault('messages',[]).extend(messages)
+            for message in messages:
+                render_message(message)
         except Exception as error:
-            st.error(f'Question failed ({type(error).__name__}); this turn was not saved.')
+            st.error(f'Question failed ({user_error(error)}); this turn was not saved.')

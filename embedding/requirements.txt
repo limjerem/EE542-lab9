@@ -10,3 +10,4 @@ sqlalchemy>=2,<3
 pymysql>=1,<2
 cryptography
 numpy>=2,<3
+fonttools>=4,<5

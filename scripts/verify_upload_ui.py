@@ -1,5 +1,6 @@
 """Exercise the local upload interface with cached ADS documents only."""
 import json
+import os
 from pathlib import Path
 import re
 import sys
@@ -15,7 +16,7 @@ def main():
     original = ROOT/'embedding'/metadata['sources'][0]['filename']
     report = dict(browser='Chromium',url='http://127.0.0.1:8501',checks=[],questions_submitted=0)
     with sync_playwright() as runner:
-        browser = runner.chromium.launch(headless=True)
+        browser = runner.chromium.launch(headless=True,channel=os.getenv('PLAYWRIGHT_BROWSER_CHANNEL') or None)
         page = browser.new_page(viewport={'width':1280,'height':960})
         try:
             def upload(paths, expected):

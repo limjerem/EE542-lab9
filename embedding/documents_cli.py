@@ -6,6 +6,7 @@ import sys
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from lab9_core.library import FILE_TYPES, SourceFile, open_library
 from lab9_core.conversation import open_chat
+from lab9_core.errors import user_error
 
 
 def main():
@@ -42,7 +43,7 @@ def main():
                 for source in result['sources']:
                     print(f"{source['filename']} | PDF page {source['page']}\n{source['text']}")
         except Exception as error:
-            print(f'Question failed ({type(error).__name__}); retry when ready.')
+            print(f'Question failed ({user_error(error)}); retry when ready.')
     print('Goodbye.')
 
 

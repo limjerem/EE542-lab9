@@ -97,7 +97,8 @@ def open_library():
     model = values.get('EMBEDDING_MODEL','text-embedding-3-small')
     embedding = OpenAIEmbeddings(model=model, api_key=values.get('OPENAI_API_KEY'))
     vectors = VectorStore(values.get('PART3_INDEX_DIR',ROOT/'embedding/upload_index'),embedding,
-                         dict(backend='openai',model=model,api_base='https://api.openai.com/v1'))
+                         dict(backend='openai',model=model,api_base='https://api.openai.com/v1'),
+                         reuse_only=values.get('RAG_REUSE_ONLY') == '1')
     vectors.load()
     if values.get('REUSE_NATIVE_INDEX'):
         vectors.seed_cache(values['REUSE_NATIVE_INDEX'])
